@@ -1,0 +1,151 @@
+@use "../../abstract/" as *;
+
+.main-nav {
+    .menu {
+        align-items: stretch;
+        display: flex;
+    }
+
+    li {
+        display: inline-flex;
+        flex-direction: column;
+        font-size: get-size(400);
+        justify-content: center;
+        padding: .8em 1em;
+        position: relative;
+        transition-duration: 333ms;
+        transition-property: color, background-color, opacity;
+        transition-timing-function: ease-in-out;
+    }
+    
+    a:not(.btn) {
+        color: theme-color("gray");
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+
+	@include dropdown-navigation();
+    
+	@include media-query("desktop") {
+        
+        .menu {
+            flex-direction: row;
+            
+            li {
+				a {
+					transition: background-color .125s ease-in-out;
+				}
+
+                &.current-menu-item > a,
+                &:hover > a {
+                    color: theme-color("nav-text-hover");
+					background-color: theme-color("nav-bg-hover");
+                }
+            }
+        }
+
+		.sub-menu {
+			box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+			background-color: theme-color("white");
+
+			li {
+				> a {
+					color: theme-color("nav-text");
+				}
+				
+				&:hover {
+					> a {
+						color: theme-color("nav-text-hover");
+					}
+				}
+			}
+		}
+
+		.expand {
+			display: none;
+		}
+    }
+}
+
+.main-nav {
+	.menu {
+		> li {
+			> a {
+				text-transform: var(--primary-nav-text-casing);
+			}
+		}
+	}
+}
+
+.secondary-nav {
+	display: flex;
+
+	.menu {
+		.menu {
+			align-items: stretch;
+			display: flex;
+		}
+	
+		li {
+			display: inline-flex;
+			flex-direction: column;
+			font-size: get-size(400);
+			justify-content: center;
+			padding: .8em 1em;
+			position: relative;
+			transition-duration: 333ms;
+			transition-property: color, background-color, opacity;
+			transition-timing-function: ease-in-out;
+
+			a {
+				color: theme-color("gray");
+				text-decoration: none;
+				transition: color 0.3s ease-in-out;
+			}
+		}
+
+		& > li:hover,
+		& > li:focus,
+		& > li:focus-within {
+			& > a {
+				text-decoration: underline;
+			}
+		}
+
+		@include media-query("desktop") {
+			.sub-menu li {
+				background-color: var(--current-bg-color);
+			}
+		}
+	}
+
+	@include dropdown-navigation();
+
+	.header-search {
+		color: theme-color("text");
+	}
+}
+
+@include media-query("desktop") {
+	.main-nav  {
+		.menu {
+			li {
+				padding: 0;
+
+				a {
+					padding: .8em 1em;
+				}
+			}
+
+			> li {
+				margin-top: -1px;
+
+				> a {
+					color: var(--primary-nav-text-color);
+					padding-inline: 2em;
+				}
+			}
+		}
+	}
+}
+

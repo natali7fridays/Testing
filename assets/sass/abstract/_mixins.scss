@@ -1,0 +1,338 @@
+@use "sass:map";
+@use "sass:color";
+@use "sass:math";
+@use "variables" as *;
+@use "functions" as *;
+
+/******************************************************
+    [ Mixins ]
+*******************************************************/
+@mixin breakpoint($args...) {
+    $map: keywords($args);
+    $query: "";
+
+    @if map.has-key($map, min) {
+        $query: append($query, "(min-width: #{map-get($map, min)})");
+    }
+
+    @if map.has-key($map, min) and map-has-key($map, max) {
+        $query: append($query, "and");
+    }
+
+    @if map.has-key($map, max) {
+        $query: append($query, "(max-width: #{map-get($map, max)})");
+    }
+
+    @media screen and #{$query} {
+        @content;
+    }
+}
+
+@mixin media-query($key) {
+    $breakpoint: map.get($breakpoints, $key);
+
+    @if not $breakpoint {
+
+        @warn #{"Breakpoint \"" + $key + "\" not found in theme breakpoints variable."};
+    }
+
+    @else {
+
+        @media #{ $breakpoint } {
+            @content;
+        }
+    }
+}
+
+// Set background color and custom property.
+@mixin bg-color($key) {
+    $color: map.get(variables.$theme-colors, $key);
+
+    @if not $color {
+
+        @warn #{"Color \"" + $key + "\" not found in theme colors."};
+    }
+
+    @else {
+        --background-color: #{$color};
+        background-color: $color;
+    }
+}
+
+// Center block
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+    content: "";
+    display: table;
+    table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+    clear: both;
+}
+
+@mixin btn {
+
+    background: transparent;
+    border-color: transparent;
+    border-radius: theme-style("button-border-radius");
+    -webkit-border-radius: theme-style("button-border-radius");
+    border-style: solid;
+    border-width: 2px;
+    color: currentColor;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1;
+    padding-bottom: 0.625em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.75em;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition-duration: 333ms;
+    transition-property: color, background-color, border;
+    transition-timing-function: ease-in-out;
+    user-select: none;
+    vertical-align: middle;
+    white-space: normal;
+    -webkit-appearance: none;
+
+    @include media-query('md') {
+        font-size: 1rem;
+    }
+}
+
+@mixin btn-primary {
+
+    @include btn;
+    background-color: theme-color("color-1");
+    color: theme-color("white");
+    border: 2px solid theme-color("color-1");
+
+	text-transform: uppercase;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: theme-color("color-2");
+        color: theme-color("white");
+        border: 2px solid theme-color("color-2");
+    }
+}
+
+@mixin btn-secondary {
+	@include btn;
+
+	background-color: transparent;
+	color: theme-color("color-1");
+	border: 2px solid theme-color("color-1");
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: theme-color("color-1");
+		color: theme-color("white");
+	}
+}
+
+@mixin card {
+    border-color: color.change(theme-color("gray"), $alpha: 0.7);
+    border-radius: theme-style("border-radius");
+    border-style: solid;
+    border-width: 2px;
+    overflow: hidden;
+
+	background-color: theme-color("white");
+	box-shadow: 5px 5px 15px theme-color("neutral-3");
+}
+
+@mixin background-color {
+	&.color-1 {
+		background-color: theme-color("color-1");
+	}
+	&.color-2 {
+		background-color: theme-color("color-2");
+	}
+	&.color-3 {
+		background-color: theme-color("color-3");
+	}
+	&.neutral-1 {
+		background-color: theme-color("neutral-1");
+	}
+	&.neutral-2 {
+		background-color: theme-color("neutral-2");
+	}
+	&.neutral-3 {
+		background-color: theme-color("neutral-3");
+	}
+	&.black {
+		background-color: theme-color('black');
+	}
+	&.white {
+		background-color: theme-color('white');
+	}
+}
+
+@mixin colors-for-background-color {
+	&.primary {
+		p, span, div,
+		h1, h2, h3, h4, h5, h6 {
+			color: theme-color('text');
+		}
+	}
+	&.secondary {
+		p, span, div,
+		h1, h2, h3, h4, h5, h6 {
+			color: theme-color('text');
+		}
+	}
+	&.black {
+		p, span, div,
+		h1, h2, h3, h4, h5, h6 {
+			color: theme-color('white');
+		}
+	}
+	&.white {
+		p, span, div,
+		h1, h2, h3, h4, h5, h6 {
+			color: theme-color('text');
+		}
+	}
+}
+
+@mixin background-image {
+    /**
+    * Fallback
+    **/
+    background: var(--background-image) center center no-repeat;
+
+    background:
+        linear-gradient(to top, rgba(253, 253, 253, 0.0), transparent),
+        var(--background-image) center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: cover;
+}
+
+
+@mixin h1 {
+    font-size: get-size('h1');
+    font-weight: get-weight("h1");
+	text-transform: get-text-transform('h1');
+
+	@include media-query("under-desktop") {
+		font-size: get-size('h2');
+	}
+}
+
+@mixin h2 {
+	font-size: get-size('h2');
+    font-weight: get-weight("h2");
+	text-transform: get-text-transform('h2');
+
+	@include media-query("under-desktop") {
+		font-size: get-size('h3');
+	}
+}
+
+@mixin h3 {
+    font-size: get-size('h3');
+    font-weight: get-weight("h3");
+	text-transform: get-text-transform('h3');
+
+	@include media-query("under-desktop") {
+		font-size: get-size('h4');
+	}
+}
+
+@mixin h4 {
+    font-size: get-size('h4');
+    font-weight: get-weight("h4");
+	text-transform: get-text-transform('h4');
+}
+
+@mixin h5 {
+    font-size: get-size('h5');
+    font-weight: get-weight("h5");
+	text-transform: get-text-transform('h5');
+}
+
+@mixin h6 {
+    font-size: get-size('h6');
+    font-weight: get-weight("h6");
+	text-transform: get-text-transform('h6');
+}
+
+@mixin fixed-aspect-ratio($width: 1, $height: 1) {
+    $ratio : math.div($height, $width);
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        padding-bottom: calc(100% * #{$ratio});
+    }
+}
+
+@mixin image-shape-circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+@mixin dropdown-navigation {
+    .page_item_has_children > a::after,
+    .menu-item-has-children > a::after {
+        content: "\f078";
+        font-family: theme-font("icons");
+		margin-left: 8px;
+    	font-size: get-size(300);
+    }
+
+    @include media-query("desktop") {
+        // Position submenus offscreen.
+        ul li ul {
+            left: 9999px;
+            min-width: 10rem;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: absolute;
+            visibility: hidden;
+            z-index: 30;
+        }
+
+        // Position submenus to right of parent on hover and focus.
+        ul li:hover,
+        ul li:focus-within {
+
+            & > ul {
+                left: 100%;
+                top: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        // Exception: position 2nd level submenus directly below menu.
+        .menu > li:hover,
+        .menu > li:focus-within {
+
+            & > ul {
+                left: 0;
+                top: 100%;
+            }
+        }
+    }
+}

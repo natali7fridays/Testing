@@ -1,0 +1,36 @@
+@use "../abstract/" as *;
+
+/******************************************************
+	[ Alert Banner ]
+*******************************************************/
+.adapt-dev-alert--banner {
+
+    display: none; // JavaScript will show/hide.
+    justify-content: center;
+    padding: 0.5em;
+    text-align: center;
+
+    .banner__link {
+
+        &::after {
+
+            content: "\f0da";
+            font-family: theme-font("icons");
+            font-weight: 600;
+            margin-left: 0.5em;
+        }
+    }
+
+    .banner__text {
+        font-size: 1.125rem;
+    }
+
+    .banner__close {
+        background: transparent;
+        border: none;
+        color: theme-color("light");
+        cursor: pointer;
+        font-size: 1.25em;
+        margin: 0 1em;
+    }
+}

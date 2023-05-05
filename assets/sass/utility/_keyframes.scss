@@ -1,0 +1,28 @@
+@keyframes fade-away {
+
+    from {
+        opacity: inherit;
+        transform: scaleY(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+}
+
+
+.anim-fade-away {
+    animation-name: fade-away;
+}
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+
+.spin{
+    animation: spin 1.5s cubic-bezier(0.1, 0.5, 0.85, 0.5) infinite;
+}

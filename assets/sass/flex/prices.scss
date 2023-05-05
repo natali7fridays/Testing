@@ -1,0 +1,31 @@
+@use "../abstract/" as *;
+
+.layout--prices {
+    width: 100%;
+    
+    .prices-list {
+        .price-row {
+            .entry-title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h3 {
+
+                }
+            }
+            hr {
+                background-color: theme-color("neutral-3");
+                // height: 2px;
+            }
+        }
+
+        .price-row + .price-row {
+            margin-top: 20px;
+        }
+    }
+
+    .price {
+        @include h3;
+        color: theme-color("color-1");
+    }
+}

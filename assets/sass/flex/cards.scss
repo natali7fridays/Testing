@@ -1,0 +1,44 @@
+@use "sass:math";
+@use "../abstract/" as *;
+
+.layout--cards {
+    $column-gap: rem(36px);
+    $row-gap: rem(28px);
+    $card-min-width: 320px;
+
+    .rows {
+        column-gap: $column-gap;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: $row-gap;
+
+		@include breakpoint($min: 1100px) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .card {
+        flex-basis: $card-min-width;
+        flex-grow: 0;
+        flex-shrink: 0;
+        max-width: 100%;
+
+        @include breakpoint($max: 767px) {
+            flex-basis: 100%;
+        }
+
+        @include breakpoint($min: 1200px) {
+            flex-basis: linear-clamp(360px, 400px, 1200px, 1600px)
+        }
+    }
+
+    &.text-center {
+        .card__heading,
+        .card__text, 
+        .card__text p,
+        .card__link {
+            text-align: center;
+        }
+    }
+}

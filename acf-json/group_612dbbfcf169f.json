@@ -1,0 +1,54 @@
+{
+    "key": "group_612dbbfcf169f",
+    "title": "Background Color",
+    "fields": [
+        {
+            "key": "field_609591cc5c8b8",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "bg-color-palette",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "color-1": "Color 1",
+                "color-2": "Color 2",
+                "color-3": "Color 3",
+                "neutral-1": "Neutral 1",
+                "neutral-2": "Neutral 2",
+                "neutral-3": "Neutral 3"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1641851864
+}

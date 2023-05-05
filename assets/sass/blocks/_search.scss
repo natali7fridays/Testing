@@ -1,0 +1,11 @@
+@use "../abstract/" as *;
+@use "archive" as *;
+
+.search-result-count {
+	max-width: $max-text-width;
+	margin-bottom: var(--vertical-rhythm);
+
+	@include media-query("lg") {
+		margin-bottom: calc(var(--vertical-rhythm) * 2)
+	}
+}

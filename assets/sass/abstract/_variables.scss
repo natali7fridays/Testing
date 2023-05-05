@@ -1,0 +1,166 @@
+@use "sass:map";
+@use "functions/linear-clamp" as *;
+
+$theme-colors: (
+    "color-1": var(--color-1),
+    "color-2": var(--color-2),
+    "color-3": var(--color-3),
+	"neutral-1": var(--color-neutral-1),
+	"neutral-2": var(--color-neutral-2),
+	"neutral-3": var(--color-neutral-3),
+    "light": #fefefe,
+    "off-light": #f9f9f9,
+    "text": var(--text-color),
+    "heading": var(--heading-color),
+    "black": black,
+    "gray": #555555,
+    "gray-light": #cccccc,
+    "white": #ffffff,
+    "shade": #ededed,
+	"header-top-bar-border": var(--header-top-bar-border-color),
+	"header-widget-phone-icon": var(--header-widget-phone-icon-color),
+	"header-widget-phone-number": var(--header-widget-phone-number-color),
+	"nav-bg": var(--primary-nav-bg-color),
+	"nav-border": var(--primary-nav-border-color),
+	"nav-text": var(--primary-nav-text-color),
+	"nav-text-hover": var(--primary-nav-text-color-hover),
+	"nav-bg-hover": var(--primary-nav-text-bg-color-hover),
+    "page-title-bg": var(--page-title-bg-color),
+    "page-title-text": var(--page-title-text-color),
+	"footer-top-bg": var(--footer-top-bg-color),
+	"footer-top-text": var(--footer-top-text-color),
+	"footer-bottom-bg": var(--footer-bottom-bg-color),
+	"footer-bottom-text": var(--footer-bottom-text-color),
+    "video-play-bg": var(--video-play-bg-color),
+    "video-controls-bg": var(--video-controls-bg-color),
+	"slant-top": var(--slant-top-color),
+	"slant-bottom": var(--slant-bottom-color),
+);
+
+$background-colors: (
+	"white": #ffffff,
+	"color-1": var(--color-1),
+    "color-2": var(--color-2),
+    "color-3": var(--color-3),
+	"neutral-1": var(--color-neutral-1),
+	"neutral-2": var(--color-neutral-2),
+	"neutral-3": var(--color-neutral-3),
+);
+
+$theme-fonts: (
+    "body": var(--font),
+    "heading": var(--font-heading),
+    "mono": "sfmono-regular, consolas, \"liberation mono\", menlo, courier, monospace",
+    "icons": "font awesome 5 pro"
+);
+
+$theme-styles: (
+    "border-radius": var(--sitewide-border-radius),
+    "button-border-radius": var(--button-border-radius),
+);
+
+//the var that will be dynamic with child themes 
+//and a static one that can be used in sass functions like linear-clamp
+$font-size-base: var(--font-size-base);
+$font-size-base-static: 16px;
+
+$font-sizes: (
+	'h1': var(--font-size-h1),
+	'h2': var(--font-size-h2),
+	'h3': var(--font-size-h3),
+	'h4': var(--font-size-h4),
+	'h5': var(--font-size-h5),
+	'h6': var(--font-size-h6),
+    200: var(--font-size-200),
+    300: var(--font-size-300),
+    400: $font-size-base,
+    500: var(--font-size-500),
+    600: var(--font-size-600),
+	650: var(--font-size-650),
+    700: var(--font-size-700),
+    800: var(--font-size-800),
+    900: var(--font-size-900),
+);
+
+$mobile-xs: 320px;
+$mobile-small: 360px;
+$mobile: 480px;
+$tablet-xs: 512px;
+$tablet-small: 768px;
+$tablet-md: 900px;
+$tablet: 1024px;
+$desktop-sm: 1200px;
+$desktop-md: 1360px;
+$desktop-large: 1600px;
+
+$breakpoints: (
+    "md": "(min-width: 480px)",
+    "lg": "(min-width: 769px)",
+    "xl": "(min-width: 1025px)",
+    "xxl": "(min-width: 1600px)",
+    "tablet": "(min-width: 480px)",
+    "tablet-large": "(min-width: 769px)",
+    "tablet-xl": "(min-width: 900px)",
+    "desktop": "(min-width: 1025px)",
+    "desktop-large": "(min-width: 1600px)",
+    "over-mobile": "(min-width: 480px)",
+    "over-tablet": "(min-width: 769px)",
+    "over-tablet-large": "(min-width: 1025px)",
+    "over-desktop": "(min-width: 1600px)",
+    "under-mobile": "(max-width: 360px)",
+    "under-tablet": "(max-width: 479px)",
+    "under-tablet-large": "(max-width: 768px)",
+    "under-desktop": "(max-width: 1024px)"
+);
+
+$font-weights: (
+	"body": var(--weight-body),
+    "h1": var(--weight-h1),
+    "h2": var(--weight-h2),
+    "h3": var(--weight-h3),
+    "h4": var(--weight-h4),
+    "h5": var(--weight-h5),
+    "h6": var(--weight-h6),
+);
+
+$text-transforms: (
+	'h1' : var(--text-transform-h1),
+	'h2' : var(--text-transform-h2),
+	'h3' : var(--text-transform-h3),
+	'h4' : var(--text-transform-h4),
+	'h5' : var(--text-transform-h5),
+	'h6' : var(--text-transform-h6),
+);
+
+$letter-spacings: (
+    "uppercase": var(--letter-spacing-uppercase),
+    "sm": 0.5px,
+    "md": 1px,
+    "lg": 1.5px,
+);
+
+$line-height-normal: 1.5;
+$line-height-condensed: 1.3;
+
+$color-body-background: map.get($theme-colors, "light");
+$color-body-text: map.get($theme-colors, "text");
+$color-selection: map.get($theme-colors, "color-2");
+
+$max-section-width: 88rem;
+$page-gutter: max(2.5rem, calc(100vw - #{$max-section-width}) / 2);
+$page-gutter-sm: max(1.5rem, calc(100vw - #{$max-section-width}) / 2);
+$page-gutter-xs: max(1rem, calc(100vw - #{$max-section-width}) / 2);
+$section-spacing: linear-clamp(32px, 72px, $mobile-xs, $tablet);
+$section-spacing-some: linear-clamp(16px, 48px, $mobile-xs, $tablet);
+
+$max-text-width: 58em;
+$max-content-width: 875px;
+
+$spacing-sm: 10px;
+$spacing-md: 20px;
+$spacing-md_lg: 32px;
+$spacing-lg: 40px;
+$spacing-xl: 56px;
+$spacing-xxl: 64px;
+
+$image_assets: '/wp-content/themes/%28AGEN%29%20AdaptDev%20Hybrid/dist/images/';

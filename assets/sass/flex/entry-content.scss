@@ -1,0 +1,12 @@
+@use "../abstract/" as *;
+
+.layout--entry-content {
+    // ACF flexible content layouts and WordPress editor content styles are
+    // global style blocks, so this file should mostly contain exceptions.
+
+    $max-section-width: 50rem; //800px
+    $page-gutter: max(1.5rem, calc(100vw - #{$max-section-width}) / 2);
+
+    padding-left: $page-gutter;
+    padding-right: $page-gutter;
+}

@@ -1,0 +1,63 @@
+{
+  "name": "adapt_dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "start": "gulp watch",
+    "lint:php": "composer exec phpcs",
+    "lint:js": "eslint ./assets/js/**/*.js",
+    "lint:sass": "stylelint ./assets/sass/**/*.scss",
+    "fix:php": "composer exec phpcbf",
+    "fix:js": "npm run lint:js -- --fix",
+    "fix:sass": "npm run lint:sass -- --fix"
+  },
+  "eslintIgnore": [
+    "assets/js/libs"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "@babel/runtime": "^7.14.8",
+    "@wordpress/eslint-plugin": "^9.1.0",
+    "cssnano": "^5.0.7",
+    "cssnano-preset-advanced": "^5.1.3",
+    "del": "^6.0.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.31.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-delete-original": "^0.2.3",
+    "gulp-sass": "^5.0.0",
+    "postcss": "^8.3.6",
+    "postcss-preset-env": "^6.7.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-wordpress": "^17.0.0",
+    "stylelint-scss": "^3.20.1",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^6.1.2",
+    "sass": "^1.36.0"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.0",
+    "slick-carousel": "^1.8.1"
+  }
+}

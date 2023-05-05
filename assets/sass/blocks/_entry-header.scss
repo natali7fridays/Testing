@@ -1,0 +1,49 @@
+@use "sass:color";
+@use "../abstract/" as *;
+
+.entry-header {
+	display: flex;
+	align-items: center;
+	padding: linear-clamp(1em, 3em, 20em, 64em) var(--gutter);
+	background-color: theme-color("page-title-bg");
+
+	&.aligned {
+		justify-content: center;
+	}
+
+	&.has-bg-img {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: transparent;
+
+		min-height: linear-clamp( 160px, 300px, 360px, 1024px );
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-color: theme-color("neutral-3");
+			opacity: .5;
+		}
+
+		.entry-title {
+			z-index: 2;
+		}
+	}
+
+	.entry-title {
+		font-weight: 400;
+		color: theme-color("page-title-text");
+		line-height: 1;
+		// font-size: linear-clamp( 22px, 28px, 320px, 1024px );
+		@include h2;
+	}
+}
+
+.loaded {
+	.entry-header {
+		background-image: var(--entry-background-image);
+	}
+}

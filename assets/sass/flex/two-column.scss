@@ -1,0 +1,266 @@
+@use "../abstract/" as *;
+@use "image" as *;
+@use "video" as *;
+@use "prices" as *;
+@use "icon-list" as *;
+
+.layout--two-column {
+	// padding-block: 0;
+
+	&.forty-sixty {
+		.row {
+			@include media-query("lg") {
+				grid-template-columns: 2fr 3fr;
+			}
+		}
+	}
+
+	&.sixty-forty {
+		.row {
+			@include media-query("lg") {
+				grid-template-columns: 3fr 2fr;
+			}
+		}
+	}
+
+    .row {
+        column-gap: linear-clamp(40px, 56px, $mobile, $desktop-large);
+        display: grid;
+        grid-template-columns: 1fr;
+        // row-gap: linear-clamp($spacing-lg, $font-size-base-static, $mobile, $desktop-large);
+		row-gap: $spacing-lg;
+
+		&.vertical-align-top {
+            align-items: flex-start;
+        }
+        &.vertical-align-center {
+            align-items: center;
+        }
+        &.vertical-align-bottom {
+            align-items: flex-end;
+        }
+
+		@include media-query('md') {
+			grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		}
+    }
+
+	&.reverse-on-mobile {
+		.row {
+			.col:first-child {
+				order: 2;
+			}
+			.col:last-child {
+				order: 1;
+			}
+			@include breakpoint($min: 732px) {
+				.col:first-child {
+					order: 1;
+				}
+				.col:last-child {
+					order: 2;
+				}
+			}
+		}
+	}
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+		min-width: 0;
+
+		.layout--prices {
+			h2 {
+				margin-bottom: rem(48px);
+			}
+
+			margin: auto;
+		}
+
+		.layout--gravity-form {
+			&.has-bg-color {
+				padding: 2.25rem 1rem;
+				border-radius: theme-style("border-radius");
+
+				.gform_confirmation_wrapper {
+					padding-bottom: var(--vertical-rhythm);
+				}
+			}
+			&.neutral-1,
+			&.neutral-2,
+			&.neutral-3 {
+				*:not(input[type=submit]) {
+					color: theme-color("text");
+				}
+				.gform_title {
+					color: theme-color("heading");
+				}
+				.gform_description {
+					color: theme-color("text");
+				}
+
+				input[type=submit] {
+					&:hover,
+					&:active,
+					&:focus {
+						color: theme-color("color-2");
+					}
+				}
+			}
+			&.neutral-1 {
+				border: 2px solid theme-color("neutral-2")
+			}
+			&.white {
+				background-color: transparent !important;
+			}
+			&.color-1,
+			&.color-2,
+			&.color-3 {
+				input[type=text],
+                input[type=number],
+                input[type=date],
+                input[type=tel],
+                input[type=password],
+                input[type=datetime-local],
+                input[type=email],
+                input[type=month],
+                select,
+                textarea {
+					border: 0px;
+				}
+
+				input[type=submit] {
+					background-color: theme-color('white');
+					border-color: theme-color("white");
+				}
+			}
+			&.color-1 {
+				input[type=submit] {
+					color: theme-color("color-1");
+
+					&:hover,
+					&:active,
+					&:focus {
+						background-color: transparent;
+						color: theme-color("white");
+						border-color: theme-color("white");
+					}
+				}
+			}
+			&.color-2 {
+				input[type=submit] {
+					color: theme-color("color-2");
+
+					&:hover,
+					&:active,
+					&:focus {
+						background-color: transparent;
+						color: theme-color("white");
+						border-color: theme-color("white");
+					}
+				}
+			}
+			&.color-3 {
+				input[type=submit] {
+					color: theme-color("white");
+					background-color: theme-color("color-1");
+					border-color: theme-color("color-1");
+
+					&:hover,
+					&:active,
+					&:focus {
+						background-color: theme-color("color-2");
+						color: theme-color("white");
+						border-color: theme-color("color-2");
+					}
+				}
+			}
+			@include breakpoint($min: 732px, $max: 1024px) {
+				.gfield.gfield--width-half {
+					grid-column: 1/-1;
+				}
+				.ginput_complex span {
+					flex: 0 0 100%;
+					padding-right: 0px !important;
+					padding-left: 0px !important;
+					
+					& + span {
+						margin-top: $spacing-sm;
+					}
+				}
+			}
+		}
+		
+		@include media-query("desktop") {
+			.acf-flex-layout,
+			.acf-flex-layout.has-bg-color {
+				padding-left: linear-clamp(2em, 3em, 26em, 56em );
+				padding-right: linear-clamp(2em, 3em, 26em, 56em );
+				
+				&.wide-image {
+					padding: 0px;
+				}
+			}
+		}
+
+    }
+
+    .acf-flex-layout {
+        padding: 0;
+		background-image: none;
+
+		.flex-layout__headings {
+			text-align: left;
+			margin-bottom: 1em;
+		}
+
+		& + .acf-flex-layout {
+			margin-top: 1em;
+		}
+    }
+
+	.layout--image {
+		.image__container {
+			img {
+				&.size-thumbnail,
+				&.size-medium {
+					object-fit: none;
+				}
+			}
+		}
+
+		&.image-shape-circle {
+			.image__container {
+				img {
+					&.size-thumbnail,
+					&.size-medium {
+						object-fit: cover;
+						margin-inline: auto;
+						width: auto;
+					}
+
+					&.size-medium {
+						height: 300px;
+						width: 300px;
+					}
+					&.size-thumbnail {
+						height: 150px;
+						width: 150px;
+					}
+					@include image-shape-circle;
+				}
+			}
+		}
+	}
+
+	@include media-query("desktop") {
+		&:not(.sixty-forty),
+		&:not(.forty-sixty) {
+			.row {
+				gap: 0;
+			}
+		}
+	}
+}
+

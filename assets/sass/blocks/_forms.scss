@@ -1,0 +1,190 @@
+@use "../abstract/" as *;
+
+/* stylelint-disable */
+.gform_wrapper {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0px !important;
+
+    // Form fields wrapper.
+    $column-gap: 0.75em;
+    $row-gap: 1em;
+    // Title and description wrapper.
+    .gform_heading {
+        h2 {
+            @include h3;
+            margin-bottom: $spacing-sm;
+        }
+    }
+
+    .gform_title {
+
+    }
+
+    .gform_description {
+        display: inline-block;
+        margin-bottom: $spacing-md;
+    }
+
+    .gform_required_legend {
+        font-size: get-size(300);
+    }
+
+    // Form fields wrapper.
+    .gform_body {
+
+    }
+
+    .gform_fields {
+        column-gap: $column-gap;
+        display: grid;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(12, 1fr);
+        row-gap: $row-gap;
+
+        // An individual field.
+        .gfield {
+            grid-column: 1 / -1;
+
+            // The input label.
+            .gfield_label {
+				font-size: get-size(300);
+				font-weight: 400;
+            }
+
+            // The input wrapper.
+            .ginput_container {
+
+				// Form element padding.
+				input,
+                select {
+                    padding: get-size(300);
+                }
+                
+                input[type=text],
+                input[type=number],
+                input[type=date],
+                input[type=tel],
+                input[type=password],
+                input[type=datetime-local],
+                input[type=email],
+                input[type=month],
+                select,
+                textarea {
+                    border-radius: theme-style("border-radius");
+                    border-style: solid;
+                    border-width: 2px !important;
+                    border-color: theme-color("neutral-3") !important;
+        
+                    &::placeholder {
+                        color: theme-color("neutral-3");
+                    }
+        
+                    &:focus {
+                        outline-color: theme-color("color-1");
+                    }
+                }
+                .datepicker {
+                    width: 100%;
+                }
+            }
+            
+            .ginput_container_select {    
+                position: relative;
+                
+                select {
+                    -webkit-appearance: none;
+                    padding-right: 3rem;
+                }
+
+                &::after {
+                    content: '\f078';
+                    display: block;
+                    position: absolute;
+                    font-family: theme-font('icons');
+                    color: theme-color("text");
+                    right: 12px;
+                    top: 18px;
+                    font-size: 20px;
+                    line-height: 1;
+                }
+            }
+
+            &.hidden_label {
+                .gfield_label {
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    .gform_footer {
+        input[type=submit] {
+            text-transform: uppercase;
+            font-weight: normal !important;
+        }
+    }
+}
+
+// Set form background, padding/border for white backgrounds.
+.white {
+	.gform_wrapper {
+		background-color: theme-color("off-light");
+		border: 1px solid theme-color("neutral-3");
+		border-radius: theme-style("border-radius");
+		padding: rem(60px) rem(70px);
+	}
+}
+
+// Button - Submit
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper .gform_page_footer input.button,
+.gform_wrapper .gform_page_footer input[type="submit"] {
+
+	@include btn-primary;
+
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: theme-color("color-1");
+		color: theme-color("white");
+	}
+}
+/* stylelint-enable */
+
+//  Search Form  ///////////////////////////////////////////////////////
+
+.search-form {
+	display: flex;
+	margin-bottom: 0;
+
+    &__input,
+    &__submit {
+        border: 1px solid rgba(147, 128, 108, 0.25);
+        padding: 0.5em 0.75em;
+    }
+
+    &__input {
+        flex-grow: 1;
+        border-radius: 2px 0 0 2px;
+    }
+
+    &__submit {
+        background-color: theme-color("white");
+        color: theme-color("color-1");
+        font: inherit;
+        font-weight: normal;
+        border-radius: 0 2px 2px 0;
+        border-left: 0;
+		cursor: pointer;
+    }
+}
+
+input[type=radio] {
+    background-color: transparent;
+    height: 13px;
+    width: 13px;
+    border: 1px solid theme-color("black");
+}

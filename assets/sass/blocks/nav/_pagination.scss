@@ -1,0 +1,126 @@
+@use "../../abstract/" as *;
+
+.nav-pagination {
+
+    li {
+        display: inline-block;
+    }
+}
+
+.paging-navigation ul.page-numbers {
+	display: flex;
+    justify-content: center;
+	list-style: none;
+}
+
+.paging-navigation li:first-child > a.page-numbers,
+.paging-navigation li:first-child > span.page-numbers {
+    border-bottom-left-radius: theme-style("border-radius");
+    border-top-left-radius: theme-style("border-radius");
+}
+
+.paging-navigation li:last-child > a.page-numbers,
+.paging-navigation li:last-child > span.page-numbers {
+    border-bottom-right-radius: theme-style("border-radius");
+    border-top-right-radius: theme-style("border-radius");
+}
+
+.paging-navigation .current {
+    background: theme-color("white");
+    color: theme-color("black");
+}
+
+
+.site-main .comment-navigation,
+.site-main .paging-navigation,
+.site-main .post-navigation {
+    margin: 0 0 $spacing-sm;
+    overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+    float: left;
+    width: 50%;
+}
+
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
+.paginate {
+    padding-bottom: $spacing-md;
+    overflow: hidden;
+}
+
+.pagination {
+    clear: both;
+    display: block;
+}
+
+.paging-navigation ul.page-numbers {
+    clear: both;
+    margin: $spacing-md 0;
+    padding: 0;
+}
+
+a.page-numbers,
+span.page-numbers {
+    background-color: theme-color("white");
+    color: theme-color("color-1");
+    margin-left: -1px;
+    border: 1px solid theme-color("neutral-3");
+    padding: $spacing-sm;
+    text-decoration: none;
+}
+
+.paging-navigation li:first-child > a.page-numbers,
+.paging-navigation li:first-child > span.page-numbers {
+    border-bottom-left-radius: theme-style("border-radius");
+    border-top-left-radius: theme-style("border-radius");
+}
+
+.paging-navigation li:last-child > a.page-numbers,
+.paging-navigation li:last-child > span.page-numbers {
+    border-bottom-right-radius: theme-style("border-radius");
+    border-top-right-radius: theme-style("border-radius");
+}
+
+a:hover.page-numbers {
+    background: theme-color("off-light");
+    color: theme-color("color-2");
+}
+
+.paging-navigation .current {
+    background: theme-color("shade");
+    color: theme-color("black");
+    font-weight: bold;
+}
+
+
+.site-main .comment-navigation,
+.site-main .paging-navigation,
+.site-main .post-navigation {
+    margin: 0 0 $spacing-sm;
+    overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+    float: left;
+    width: 50%;
+}
+
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+    float: right;
+    text-align: right;
+    width: 50%;
+}

@@ -1,0 +1,432 @@
+@use "../abstract/" as *;
+
+:root {
+	--slant-top-color: #ffffff;
+	--slant-bottom-color: #ffffff;
+}
+
+@each $name, $color in $theme-colors {
+    .color-#{$name} {
+        color: $color;
+    }
+
+    .bg-#{$name} {
+        background-color: $color;
+		--current-bg-color: #{$color};
+    }
+}
+
+@each $name, $color in $background-colors {
+	.#{$name}-dark {
+
+		// Element color.
+		*,
+		&.layout--entry-content *,
+		&.layout--two-column .entry-content * {
+			color: theme-color("white");
+		}
+
+		// Element bg color.
+		hr {
+			background-color: theme-color("white");
+		}
+	}
+}
+
+@each $name, $color in $background-colors {
+	.divider-top-#{$name} {
+		&::before {
+			background-color: #{$color};
+		}
+	}
+}
+
+@each $name, $color in $background-colors {
+	.divider-bottom-#{$name} {
+		&::after {
+			background-color: #{$color};
+		}
+	}
+}
+
+.color-1  {
+	*, 
+	.entry-content *,
+	.entry-content a:not(.btn),
+	.gfield .ginput_container_fileupload input,
+	&.layout--billboard .billboard-container .billboard__message {
+		color: var(--bg-color-text-color-1);
+	}
+
+	.entry-content {
+		li {
+			&::marker {
+				color: var(--bg-color-text-color-1);
+			}
+		}
+
+		blockquote {
+			border-color: var(--bg-color-text-color-1);
+		}
+	}
+
+	.btn-primary {
+		background-color: var(--bg-color-text-color-1);
+		color: theme-color("color-1");
+		border-color: var(--bg-color-text-color-1);
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: theme-color("color-2");
+			border-color: theme-color("color-2");
+		}
+	}
+
+	.btn-secondary {
+		background-color: transparent;
+		color: theme-color("white");
+		border-color: theme-color("white");
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: theme-color("color-2");
+			color: theme-color("white");
+		}
+
+		&.color-2 {
+			color: theme-color("white");
+		}
+	}
+
+
+	h1,h2,h3,h4,h5,h6 {
+		color: var(--bg-color-heading-color-1);
+	}
+
+	&.acf-flex-layout {
+		.flex-layout__headings {
+			color: var(--bg-color-heading-color-1);
+		}
+	}
+
+	&.layout--locations,
+	&.layout--testimonials {
+		* {
+			color: inherit;
+		}
+	}
+
+	&.layout--prices {
+		.price {
+			color: var(--bg-color-heading-color-1);
+		}
+	}
+
+	&.layout--two-column {
+		.layout--prices {
+			.price {
+				color: var(--bg-color-heading-color-1);
+			}
+		}
+	}
+
+	&.layout--cards {
+		.card--cta {
+			.card__heading,
+			.card__heading a {
+				color: inherit;
+			}
+
+			.card__heading a,
+			.card__link {
+				&:hover,
+				&:active,
+				&:focus {
+					color: theme-color('color-2');
+				}
+			}
+		}
+
+		.card--feature {
+			i {
+				background-color: theme-color('color-2');
+			}
+		}
+	}
+
+	.gform_wrapper .gform_footer input[type=submit] {
+		background-color: theme-color("color-2");
+		border-color: theme-color("color-2");
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: transparent;
+		}
+	}
+}
+
+.color-2 {
+	*, 
+	.entry-content *,
+	.entry-content a:not(.btn),
+	.gfield .ginput_container.ginput_container_fileupload input,
+	&.layout--billboard .billboard-container .billboard__message {
+		color: var(--bg-color-text-color-2);
+	}
+
+	.btn-primary {
+		background-color: theme-color("color-1");
+		color: theme-color("white");
+		border-color: theme-color("color-1");
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: transparent;
+			border-color: theme-color("color-1");
+		}
+
+		&.color-2 {
+			color: theme-color("color-2");
+			border-color: theme-color("white");
+			background-color: theme-color("white");
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: transparent;
+				color: theme-color("white");
+				border-color: theme-color("white");
+			}
+		}
+	}
+
+	.btn-secondary {
+		background-color: transparent;
+		color: theme-color("white");
+		border-color: theme-color("color-1");
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: theme-color("color-1");
+		}
+
+		&.color-2 {
+			color: theme-color("white");
+			border-color: theme-color("white");
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: theme-color("color-1");
+			}
+		}
+	}
+
+	h1,h2,h3,h4,h5,h6 {
+		color: var(--bg-color-heading-color-2);
+	}
+
+	.entry-content {
+		h1,h2,h3,h4,h5,h6 {
+			color: var(--bg-color-heading-color-2);
+		}
+	}
+
+	&.layout--locations,
+	&.layout--testimonials {
+		* {
+			color: inherit;
+		}
+
+		.flex-layout__headings {
+			color: var(--bg-color-heading-color-2);
+		}
+	}
+
+	&.layout--cards {
+		.card--cta {
+			.card__heading,
+			.card__heading a {
+				color: inherit;
+			}
+
+			.card__heading a,
+			.card__link {
+				&:hover,
+				&:active,
+				&:focus {
+					color: theme-color('color-1');
+				}
+			}
+		}
+	}
+
+	.gform_wrapper .gform_footer input[type=submit] {
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: transparent;
+			border-color: theme-color("color-1");
+		}
+	}
+}
+
+.color-3 {
+	*, 
+	.entry-content *,
+	.entry-content a:not(.btn),
+	.gfield .ginput_container.ginput_container_fileupload input {
+		color: var(--bg-color-text-color-3);
+	}
+
+	h1,h2,h3,h4,h5,h6 {
+		color: var(--bg-color-heading-color-3);
+	}
+
+	.btn-primary {
+		color: theme-color("white");
+	}
+
+	.entry-content {
+		h1,h2,h3,h4,h5,h6 {
+			color: var(--bg-color-heading-color-3);
+		}
+
+		.btn-primary {
+			color: theme-color("white");
+		}
+	}
+
+	&.layout--locations,
+	&.layout--testimonials {
+		* {
+			color: inherit;
+		}
+
+		.flex-layout__headings {
+			color: var(--bg-color-heading-color-3);
+		}
+	}
+
+	&.layout--cards {
+		.card--cta {
+			.card__heading,
+			.card__heading a {
+				color: inherit;
+			}
+
+			.card__heading a,
+			.card__link {
+				&:hover,
+				&:active,
+				&:focus {
+					color: theme-color('color-1');
+				}
+			}
+		}
+	}
+
+	.gform_wrapper .gform_footer input[type=submit] {
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: theme-color("color-2");
+			border-color: theme-color("color-2");
+		}
+	}
+}
+
+.neutral-1,
+.neutral-2,
+.neutral-3 {
+	.gform_wrapper .gform_footer input[type=submit] {
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: theme-color("color-2");
+			border-color: theme-color("color-2");
+		}
+	}
+}
+
+.neutral-1 {
+	.accordion,
+	.accordion .heading, 
+	.accordion .summary {
+		background-color: theme-color("neutral-2");
+	}
+
+	.tabbed-content {
+		&__tab-list {
+			.menu {
+				.menu-item:not(.active) {
+					background-color: theme-color("neutral-2");
+				}
+
+				li.menu-item {
+					&:hover {
+						background-color: theme-color("neutral-3");
+					}
+				}
+			}
+		}
+	}
+}
+
+.neutral-3 {
+	.accordion {
+		border-color: theme-color("neutral-2");
+	}
+
+	.tabbed-content {
+		&__tab-list {
+			.menu {
+				li.menu-item {
+					border-color: theme-color("neutral-2");
+				}
+			}
+		}
+	}
+}
+
+.has-bg-color {
+	.gform_wrapper .gform_fields input, 
+	.gform_wrapper .gform_fields select,
+	.gform_wrapper .gform_fields textarea,
+	&.layout--offers .card__text p,
+	&.layout--team .card-rows .entry-content {
+		color: theme-color("text");
+	}
+
+	.tabbed-content {
+		.entry-content {
+			* {
+				color: theme-color("text");
+			}
+			
+			h1,h2,h3,h4,h5,h6 {
+				color: theme-color("heading");
+			}
+
+		}
+	}
+
+	&.layout--featured-posts {
+		.entry-content {
+			color: theme-color("text");
+		}
+	}
+}
+
+.col .has-bg-color {
+	&.neutral-1 {
+		* {
+			color: theme-color("text");
+		}
+	}
+}

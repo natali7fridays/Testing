@@ -1,0 +1,16 @@
+@use "../abstract/" as *;
+
+.content-404 .module {
+    padding-bottom: var(--section-spacing);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    padding-top: var(--section-spacing);
+
+    min-height: 50vh;
+    text-align: center;
+
+    h1 {
+        @include h2;
+    }
+
+}

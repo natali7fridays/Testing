@@ -1,0 +1,27 @@
+@use "../abstract/" as *;
+
+.layout--image {
+    .image__container {
+        width: 100%;
+
+        img {
+            height: auto;
+            object-fit: fill;
+            width: 100%;
+            border-radius: theme-style("border-radius");
+        }
+    }
+
+    &.no-top-padding {
+        padding-top: 0px;
+    }
+    &.no-bottom-padding {
+        padding-bottom: 0px;
+    }
+
+    &.image-shape-circle {
+        img {
+            @include image-shape-circle;
+        }
+    }
+}

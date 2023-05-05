@@ -1,0 +1,231 @@
+@use "../../abstract/" as *;
+
+@include media-query("under-desktop") {
+
+    .main-nav {
+        opacity: 0;
+		background-color: theme-color("white");
+		padding: 0;
+        position: absolute;
+        top: 4.25rem;
+		left: 110%;
+        right: 0;
+        width: 0;
+        height: 0;
+        max-width: 100vw;
+        overflow-x: hidden;
+        transition-property: left;
+        transition-duration: .5s;
+        transition-timing-function: ease-in-out;
+
+		ul {
+			list-style-type: none;
+		}
+
+		.sub-menu {
+			display: none;
+			background-color: theme-color("off-light");
+		}
+
+		.menu {
+			li {
+				display: list-item;
+			}
+
+			> li {
+				padding-inline: 0;
+			}
+
+			> li > a {
+				padding-inline: $page-gutter-sm;
+
+				@include media-query("under-mobile") {
+					padding-inline: $page-gutter-xs;
+				}
+			}
+
+			> .menu-item-has-children {
+				position: relative;
+			}
+
+			.menu-item-has-children {
+				> a {
+					&::after {
+						display: none;
+					}
+				}
+
+				&.expanded {
+					padding-bottom: 0;
+
+					> .expand {
+						&::after {
+							content: '\f068';
+						}
+					}
+
+					> .sub-menu {
+						margin-top: .5em;
+
+						li {
+							padding-left: max(2rem,calc(100vw - 88rem)/2);
+							padding-right: $page-gutter-sm;
+
+							@include media-query("under-mobile") {
+								padding-right: $page-gutter-xs;
+							}
+
+							.expand {
+								right: $page-gutter-sm;
+
+								@include media-query("under-mobile") {
+									right: $page-gutter-xs;
+								}
+							}
+						}
+					}
+				}
+
+				.expand {
+					background: transparent;
+					border: none;
+					position: absolute;
+					right: $page-gutter-sm;
+
+					@include media-query("under-mobile") {
+						right: $page-gutter-xs;
+					}
+
+					&::after {
+						content: '\f067';
+						font-family: theme-font("icons");
+						font-size: inherit;
+						color: theme-color("text");
+					}
+				}
+			}
+		}
+    }
+
+    .main-nav__open .main-nav {
+        opacity: 1;
+        left: 0;
+		justify-content: flex-start;
+		width: 100%;
+		height: 100vh;
+    }
+
+	// .admin-bar .main-nav {
+	// 	top: 7.25rem;
+	// }
+
+}
+
+.secondary-nav {
+	.menu {
+		> li {
+			> a {
+				padding-left: 0;
+			}
+		}
+
+		.menu-item-has-children {
+			.expand {
+				right: 0;
+			}
+		}
+	}
+}
+
+.main-nav__toggle {
+	display: inline-block;
+    background-color: theme-color("light");
+    z-index: 50;
+	border: none;
+	width: 55px;
+    height: 55px;
+	transition: transform 0.5s, background-color 0.5s;
+
+	.main-nav__toggle-box {
+		display: inline-block;
+		vertical-align: middle;
+		color: theme-color("color-1");
+		pointer-events: none;
+		width: 25px;
+		height: 19px;
+		position: relative;
+
+		&__inner::before,
+		&__inner::after {
+			content: '';
+		}
+
+		&__inner,
+		&__inner::before,
+		&__inner::after {
+			background-color: theme-color("color-1");
+			width: 25px;
+			height: 3px;
+			position: absolute;
+			transition-property: transform;
+			transition-duration: 0.15s;
+			transition-timing-function: ease;
+			border-radius: 4px;
+		}
+
+		&__inner {
+			display: flex;
+			top: 50%;
+			margin-top: -1.5px;
+			transition-duration: 0.3s;
+    		transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+			&::before {
+				transition: top 0.1s 0.34s ease-in, opacity 0.1s ease-in;
+				top: -8px;
+			}
+
+			&::after {
+				transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+				bottom: -8px;
+			}
+		}
+	}
+    @include media-query("desktop") {
+        display: none;
+    }
+}
+
+.main-nav__open {
+	.main-nav__toggle {
+		.main-nav__toggle-box {
+			&__inner {
+				transform: rotate(225deg);
+				transition-delay: 0.14s;
+				transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+			}
+			
+			&__inner::before {
+				top: 0;
+				opacity: 0;
+				transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out;
+			}
+
+			&__inner::after {
+				bottom: 0;
+				transform: rotate(-90deg);
+				transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+			}
+		}
+	}
+
+	.menu {
+		flex-direction: column;
+	}
+}
+
+// No `body` scrolling when the menu is open.
+.main-nav__open {
+    height: 100vh;
+    overflow-y: hidden;
+}

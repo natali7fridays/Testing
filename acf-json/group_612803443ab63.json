@@ -1,0 +1,168 @@
+{
+    "key": "group_612803443ab63",
+    "title": "Site Footer",
+    "fields": [
+        {
+            "key": "field_621d2ba6513b6",
+            "label": "Footer Widgets",
+            "name": "footer_widgets",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_621d2bda513b7",
+                    "label": "Center Widgets",
+                    "name": "center_widgets",
+                    "type": "true_false",
+                    "instructions": "Center footer widget columns to better align with header content when the header is set to one column layout.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        },
+        {
+            "key": "field_61718983beff0",
+            "label": "Footer Bottom Toggle",
+            "name": "footer_bottom_toggle",
+            "type": "true_false",
+            "instructions": "Show or hide footer bottom.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Show",
+            "ui_off_text": "Hide"
+        },
+        {
+            "key": "field_61280354cf49f",
+            "label": "Footer Bottom Links",
+            "name": "sub_footer_links",
+            "type": "repeater",
+            "instructions": "Links for Copyright or Privacy Policy pages, etc (max of 2).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61718983beff0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 2,
+            "layout": "table",
+            "button_label": "Add Link",
+            "sub_fields": [
+                {
+                    "key": "field_61280380cf4a0",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_612d4e21fefb4",
+            "label": "Social Icons",
+            "name": "sub_footer_social_icons",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61718983beff0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_612d4e36fefb5",
+                    "label": "",
+                    "name": "toggle",
+                    "type": "true_false",
+                    "instructions": "Display social icons? Social profile field URL's will need to be entered before icon will show. These are located in the General Info tab.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1646079056
+}

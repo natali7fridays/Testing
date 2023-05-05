@@ -1,0 +1,19 @@
+@use "../abstract/" as *;
+
+.layout--features {
+    $feature-width: 280px;
+    $gap: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    .feature {
+        flex-basis: $feature-width;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin: calc(#{$gap} / 2);
+        text-align: center;
+    }
+}

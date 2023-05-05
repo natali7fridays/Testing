@@ -1,0 +1,88 @@
+@use "sass:math";
+@use "../abstract/" as *;
+
+
+.layout--call-to-action {
+
+    .cta {
+        width: 100%;
+        max-width: 900px;
+
+        .cta__pre_title {
+            color: theme-color("text");
+            @include h4;
+
+            & + .cta__title {
+                margin-top: $spacing-sm;
+            }
+        }
+        .cta__title {
+            @include h3;
+            color: theme-color("text");
+            font-weight: 400;
+        }
+        .cta__content {
+            margin-top: var(--vertical-rhythm);
+        }
+        .cta__button {
+            margin-top: var(--vertical-rhythm);
+            a.btn-primary {
+
+            }
+        }
+
+        @include media-query('lg') {
+            width: 50%;
+            max-width: 550px;
+        }
+        @include media-query("desktop") {
+            padding: 0 linear-clamp(2em, 3em, 26em, 56em );
+        }
+    }
+
+    @include media-query('lg') {
+        &.center-align-content,
+        &.right-align-content {
+            display: flex;
+        }
+        &.center-align-content {
+            justify-content: center;
+            text-align: center;
+        }
+        &.right-align-content {
+            justify-content: flex-end;
+            text-align: right;
+        }
+    }
+
+
+    &.color-1,
+    &.color-2,
+    &.color-3 {
+        .cta {
+            .cta__pre_title,
+            .cta__title,
+            .cta__content {
+                color: theme-color("white");
+            }
+            .cta__button {
+                .btn-primary {
+                    background-color: theme-color("white");
+                    border-color: theme-color("white");
+                    &:hover {
+                        background-color: theme-color("color-2");
+                        border-color: theme-color("color-2");
+                    }
+                }
+            }
+        }
+    }
+    &.color-2
+    &.color-3 {
+        .cta .cta__button .btn-primary:hover {
+            background-color: theme-color("color-1");
+            border-color: theme-color("color-1");
+        }
+    }
+
+}

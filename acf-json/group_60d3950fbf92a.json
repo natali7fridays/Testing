@@ -1,0 +1,660 @@
+{
+    "key": "group_60d3950fbf92a",
+    "title": "Color Options",
+    "fields": [
+        {
+            "key": "field_610ad3f1a1aad",
+            "label": "Theme Colors",
+            "name": "theme_colors",
+            "type": "group",
+            "instructions": "Set your color options for the site based on branding guide. When you set the color, define whether that color is light or dark to help improve proper font to background color pairings.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": [
+                "administrator"
+            ],
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "acfe_settings": "",
+            "sub_fields": [
+                {
+                    "key": "field_610ad40ca1aae",
+                    "label": "Color 1",
+                    "name": "color_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#0073E6",
+                    "placeholder": "#0073E6",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_610ad41ea1aaf",
+                    "label": "Color 2",
+                    "name": "color_2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#22518B",
+                    "placeholder": "#22518B",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612e581b4d185",
+                    "label": "Color 3",
+                    "name": "color_3",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#E9F6FF",
+                    "placeholder": "#E9F6FF",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61561ea655214",
+                    "label": "Neutral 1",
+                    "name": "neutral_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61561eb955215",
+                    "label": "Neutral 2",
+                    "name": "neutral_2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612fa05d31dc2",
+                    "label": "Neutral 3",
+                    "name": "neutral_3",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612e5a1b3c3ac",
+                    "label": "Body Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612e5a2c3c3ad",
+                    "label": "Heading Text",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6154d824ca7da",
+            "label": "Background & Text Color Pairings",
+            "name": "background_colors",
+            "type": "group",
+            "instructions": "Select text color for respective background colors. Example, if background is using Color 1, what color will the text be?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6154d886ca7db",
+                    "label": "Background: Color 1 (Body)",
+                    "name": "color_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "placeholder": "#ffffff",
+                    "prepend": "Text Color:",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_615f6cd36696d",
+                    "label": "Background: Color 1 (Heading)",
+                    "name": "color_1_heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "placeholder": "#ffffff",
+                    "prepend": "Text Color:",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6154d894ca7dc",
+                    "label": "Background: Color 2 (Body)",
+                    "name": "color_2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "placeholder": "#ffffff",
+                    "prepend": "Text Color:",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_615f6d3a6696e",
+                    "label": "Background: Color 2 (Heading)",
+                    "name": "color_2_heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "placeholder": "#ffffff",
+                    "prepend": "Text Color:",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6154d899ca7dd",
+                    "label": "Background: Color 3 (Body)",
+                    "name": "color_3",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#58595b",
+                    "placeholder": "#58595b",
+                    "prepend": "Text Color:",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_615f6d566696f",
+                    "label": "Background: Color 3 (Heading)",
+                    "name": "color_3_heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "#58595b",
+                    "placeholder": "#58595b",
+                    "prepend": "Text Color:",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_616081db01738",
+            "label": "Header Top Bar Border Color",
+            "name": "header_top_bar_border_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#f4f4f4",
+            "placeholder": "#f4f4f4",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6143b8de8f0c2",
+            "label": "Primary Nav Background Color",
+            "name": "header_nav_bg_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#f4f4f4",
+            "placeholder": "#f4f4f4",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61607f2fed999",
+            "label": "Primary Nav Border Color",
+            "name": "header_nav_border_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#777777",
+            "placeholder": "#777777",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61561f0c9063f",
+            "label": "Primary Nav Text Color",
+            "name": "header_nav_text_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#777777",
+            "placeholder": "#777777",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6160834e21169",
+            "label": "Primary Nav Text Color: Hover",
+            "name": "header_nav_text_color_hover",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "var(--color-1)",
+            "placeholder": "var(--color-1)",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61670c4bf9dd8",
+            "label": "Primary Nav Text Bg Color: Hover",
+            "name": "header_nav_text_bg_color_hover",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "var(--color-1)",
+            "placeholder": "var(--color-1)",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6169ac36449e1",
+            "label": "Page Title Bg Color",
+            "name": "page_title_bg_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "var(--color-1)",
+            "placeholder": "var(--color-1)",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6169ad3a449e2",
+            "label": "Page Title Text Color",
+            "name": "page_title_text_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#FFFFFF",
+            "placeholder": "#FFFFFF",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61783b0c8e294",
+            "label": "Video Play Background Color",
+            "name": "video_play_background_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#222222",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61783a398e293",
+            "label": "Video Controls Background Color",
+            "name": "video_controls_background_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#222222",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6143aab650ed7",
+            "label": "Footer Top Background Color",
+            "name": "footer_top_bg_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#FFFFFF",
+            "placeholder": "#FFFFFF",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61561f3090640",
+            "label": "Footer Top Text Color",
+            "name": "footer_top_text_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#58595B",
+            "placeholder": "#58595B",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6143ab0d50ed8",
+            "label": "Footer Bottom Background Color",
+            "name": "footer_bottom_bg_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#F0F0F0",
+            "placeholder": "#F0F0F0",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61561f4890641",
+            "label": "Footer Bottom Text Color",
+            "name": "footer_bottom_text_color",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "theme-color-preview",
+                "id": ""
+            },
+            "default_value": "#58595B",
+            "placeholder": "#58595B",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_615f2360e3058",
+            "label": "Header Widgets",
+            "name": "header_widget_colors",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_615f238ae3059",
+                    "label": "Phone Number Text",
+                    "name": "phone_number_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_615f23d8e305a",
+                    "label": "Phone Icon",
+                    "name": "phone_icon_color",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "theme-color-preview",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1638547651
+}

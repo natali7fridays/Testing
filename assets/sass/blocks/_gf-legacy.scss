@@ -1,0 +1,141 @@
+/* stylelint-disable */
+/******************************************************
+    [ Form Varialbles ]
+*******************************************************/
+
+// Form
+$gf-padding: 0; // set outer padding on form
+$gf-bg: $color-white; // background color of form
+$gf-border-width: 0; // border-width on form
+$gf-border-color: $color-white; // border color
+
+// Labels
+$gf-label-font-size: 1rem;
+$gf-label-font-color: $black-1;
+$gf-label-font-weight: 700;
+
+// Inputs
+$gf-input-color-background: $color-white;
+$gf-input-color-border: $color-border-input;
+$gf-input-color-text: $color-text-input;
+$gf-input-color-focus-text: $color-focus-text-input;
+$gf-input-padding: rem(6);
+
+
+/******************************************************
+    [ Base Styles ]
+*******************************************************/
+
+// Fields
+.gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+.container .gform_wrapper textarea {
+    background-clip: padding-box;
+    background-color: $color-white;
+    border: 1px solid $color-border-input;
+    border-radius: 0.25rem;
+    color: $color-text-input;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    height: calc(1.5em + 0.75rem + 2px);
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%;
+
+    &::input-placeholder {
+        color: $color-text-input;
+        opacity: 1;
+    }
+
+    &::placeholder {
+        color: $color-text-input;
+        opacity: 1;
+    }
+
+    &:placeholder {
+        color: $color-text-input;
+        opacity: 1;
+    }
+
+    &:input-placeholder {
+        color: $color-text-input;
+    }
+
+    &:focus {
+        color: $color-focus-text-input;
+    }
+
+    // &:focus
+}
+
+// Button - Submit
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper .gform_page_footer input.button,
+.gform_wrapper .gform_page_footer input[type="submit"] {
+
+    @extend .btn-primary;
+
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: $color-1;
+        color: $color-white;
+    }
+}
+
+// Gform  Error Styles   /////////////////////////
+.container {
+
+    .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+        max-width: 100% !important;
+    }
+
+    .gform_wrapper div.validation_error {
+        background: $color-1;
+        border: 0;
+        clear: both;
+        color: rgba($color: #fff, $alpha: 0.9);
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        padding: 16px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .gform_wrapper .field_description_below .gfield_description {
+        padding-top: 6px;
+    }
+
+    .gform_wrapper.gform_validation_error {
+        background-color: transparent;
+    }
+
+    .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half),
+    .gform_wrapper li.gfield.gfield_error,
+    .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+        background-color: transparent !important;
+        border: 0;
+        color: $color-1;
+        padding: 0 !important;
+
+        .validation_message {
+            color: $color-2;
+        }
+
+        input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+        textarea {
+            border: 2px solid $color-1;
+        }
+
+    }
+
+    .gform_wrapper li.gfield_error input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+    .gform_wrapper li.gfield_error textarea {
+        border: 2px solid rgba($color: $color-1, $alpha: 0.4);
+    }
+}
+/* stylelint-enable */

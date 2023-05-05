@@ -1,0 +1,102 @@
+/******************************************************
+	[ Testimonials ]
+*******************************************************/
+@use "sass:math";
+@use "../abstract/" as *;
+
+$page-gutter-testimonials: max(2.5rem, calc(100vw - 76rem) / 2);
+
+.layout--testimonials {
+	--gutter: #{$page-gutter-testimonials};
+
+    .testimonials,
+	.testimonial-slides {
+        padding: 0;
+		list-style: none;
+
+		@include media-query("md") {
+			display: grid;
+			grid-template-columns: repeat( auto-fit, minmax(rem(320px), 1fr) );
+			justify-items: center;
+			gap: 2%;
+		}
+
+		@include media-query("desktop") {
+			grid-template-columns: repeat( auto-fit, minmax(rem(360px), 1fr) );
+		}
+    }
+
+    .testimonial {
+		border-color: theme-color("neutral-2");
+		border-radius: theme-style("border-radius");
+		border-style: solid;
+		border-width: 2px;
+		overflow: hidden;
+
+        max-width: rem(340px);
+
+		display: grid;
+		grid-template-rows: 1fr auto;
+		
+		@include media-query("under-tablet") {
+			margin-bottom: $spacing-lg;
+
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		@include media-query("tablet-large") {
+			max-width: 28rem;
+		}
+    }
+
+    .testimonial__text {
+        display: flex;
+		align-items: center;
+		background-color: theme-color("white");
+        line-height: math.div(32, 22);
+		padding: linear-clamp($spacing-md, $spacing-lg, 360px, 1200px);
+		font-weight: get-weight("body");
+
+		&::before,
+		&::after {
+			content: "\"";
+			color: theme-color("text");
+			font-family: theme-font("icons");
+		}
+
+        &::before {
+            // content: "\f10d";
+			margin-right: 4px;
+			align-self: flex-start;
+        }
+
+        &::after {
+            // content: "\f10e";
+			margin-left: 4px;
+			align-self: flex-end;
+        }
+
+    }
+
+    .testimonial__author {
+		padding: linear-clamp($spacing-md, $spacing-lg, 360px, 1200px);
+		background-color: theme-color("neutral-1");
+        position: relative;
+		border-top: 2px solid theme-color("neutral-2");
+
+        &__name {
+            font-size: rem(24px);
+			color: theme-color("color-1");
+            font-weight: 600;
+			margin-inline: 1rem;
+            line-height: $line-height-condensed;
+        }
+
+		&__info {
+			text-transform: uppercase;
+			margin-inline: 1rem;
+			letter-spacing: 1.5px;
+		}
+    }
+}

@@ -1,0 +1,153 @@
+@use "sass:color";
+@use "../abstract/" as *;
+
+.entry-content {
+
+    h1 {
+        font-size: get-size('h1');
+    }
+
+    h2 {
+        font-size: get-size('h2');
+    }
+
+    h3 {
+        font-size: get-size('h3');
+    }
+
+    h4 {
+        font-size: get-size('h4');
+        text-transform: uppercase;
+    }
+
+    h5 {
+        font-size: get-size('h5');
+    }
+
+	h6 {
+        font-size: get-size('h6');
+    }
+
+	@include media-query("under-desktop") {
+		h1 {
+			font-size: get-size('h2');
+		}
+	
+		h2 {
+			font-size: get-size('h3');
+		}
+	
+		h3 {
+			font-size: get-size('h4');
+		}
+	
+		h4 {
+			font-size: get-size('h5');
+			text-transform: uppercase;
+		}
+	}
+
+	@include media-query("under-mobile") {
+		h1 {
+			font-size: get-size('h3');
+		}
+	
+		h2 {
+			font-size: get-size('h4');
+		}
+	
+		h3 {
+			font-size: get-size('h5');
+		}
+	
+		h4 {
+			font-size: get-size('h6');
+			text-transform: uppercase;
+		}
+	}
+
+    a:not(.btn) {
+        color: theme-color("color-1");
+        transition-duration: 333ms;
+        transition-property: color;
+        transition-timing-function: ease-in-out;
+
+        &:visited {
+            color: theme-color("color-2");
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: theme-color("color-2");
+        }
+
+        &:focus {
+            outline: thin;
+            outline-style: dotted;
+            text-decoration: underline;
+        }
+    }
+
+	.btn {
+		margin-top: var(--vertical-rhythm);
+	}
+
+    p {
+        // columns: 27ch 3;
+        // gap: 2rem;
+    }
+
+    blockquote {
+        font-size: rem(26px);
+        font-weight: 400;
+        border-left: 3px solid theme-color("color-1");
+        padding-left: rem(26px);
+        margin-inline: linear-clamp($spacing-sm, rem(52px), $mobile-xs, $tablet);
+    }
+
+    img {
+        border-radius: theme-style("border-radius");
+		height: auto;
+		margin-block: 1em;
+
+        &.alignright, &.alignleft, &.aligncenter {
+            float: none;
+            width: 100%;
+            max-width: max-content;
+            margin: $spacing-sm auto;
+        }
+        @include media-query('md') {
+            &.alignright, &.alignleft, &.aligncenter {
+                width: auto;
+                margin: auto;
+            }
+            &.alignright {
+                float: right;
+                margin-left: $spacing-sm;
+            }
+            &.alignleft {
+                float: left;
+                margin-right: $spacing-sm;
+            }
+        }
+    }
+
+    ul, ol {
+		margin-left: 1.8em;
+
+        li {
+            &::marker {
+                color: theme-color("color-1");
+                font-weight: 700;
+            }
+            & + li {
+                margin-top: $spacing-sm;
+            }
+        }
+    }
+
+    .page-list {
+        margin-left: 0;
+    }
+}

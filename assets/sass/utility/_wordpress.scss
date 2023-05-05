@@ -1,0 +1,59 @@
+/******************************************************
+    [ WordPress Helpers ]
+*******************************************************/
+.alignleft {
+    float: left;
+    margin: 5px 30px 30px 0;
+}
+
+.alignright {
+    float: right;
+    margin: 5px 0 30px 30px;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption,
+.wp-caption-text,
+.gallery-caption {
+    font-style: italic;
+    max-width: 100%;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.alert {
+    border: 1px solid transparent;
+    border-radius: theme-style("border-radius");
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.25rem;
+    position: relative;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.alert-secondary {
+    background-color: #f8f9fa;
+    border-color: #eee;
+    color: #383d41;
+}

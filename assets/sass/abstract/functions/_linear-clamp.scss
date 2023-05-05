@@ -1,0 +1,24 @@
+@use "core-functions" as *;
+@use "sass:math";
+
+/// Computes a linear scale between two values and two screen widths.
+///
+/// Important Note: All four values must use the same unit.
+///
+/// @param {number} $min
+///   The minimum value for this property.
+/// @param {number} $max
+///   The maximum value for this property.
+/// @param {number} $min-width
+///   The screen width at which scaling begins.
+/// @param {number} $max-width
+///   The screen width at which scaling ends.
+/// @return {string} CSS clamp function with linear scale.
+@function linear-clamp($min, $max, $min-width, $max-width) {
+    $slope: math.div(strip-units($max) - strip-units($min), strip-units($max-width) - strip-units($min-width));
+    $rate: $slope * 100vw;
+
+    $intercept: -1 * $min-width * $slope + $min;
+
+    @return css-clamp( #{$min}, calc(#{$intercept} + #{$rate} ), #{$max} );
+}

@@ -1,0 +1,102 @@
+@use "../abstract/" as *;
+
+.layout--tabbed-content {
+    $column-gap: rem(36px);
+    $row-gap: rem(28px);
+    $card-min-width: 400px;
+
+	.tabbed-content {
+		max-width: 58em;
+		margin-inline: auto;
+
+		&__tab-list {
+			position: relative;
+
+			.menu {
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: -1px;
+				list-style-type: none;
+			}
+		}
+	
+		.menu-item {
+			display: none;
+			justify-content: space-between;
+			width: 100%;
+			padding: 1em 2em;
+			border-top-left-radius: theme-style("border-radius");
+			border-top-right-radius: theme-style("border-radius");
+			border: 1px solid theme-color("neutral-3");
+			background-color: theme-color("neutral-1");
+			color: theme-color("gray");
+			font-size: get-size(400);
+			cursor: pointer;
+
+			transition-duration: 300ms;
+			transition-property: background-color, color;
+			transition-timing-function: ease-in-out;
+	
+			&.active {
+				background-color: theme-color("color-1");
+				color: theme-color("white");
+				display: flex;
+
+				&::after {
+					content: test;
+				}
+			}
+
+			&:not(.active):hover {
+				background-color: theme-color("neutral-2");
+			}
+
+			@include media-query("desktop") {
+				display: flex;
+				width: auto;
+
+				i {
+					display: none;
+				}
+			}
+		}
+
+		&__tab-select {
+			pointer-events: all;
+			appearance: none;
+			background: none;
+			border: none;
+			color: transparent;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			inset: 0;
+
+			@include media-query("desktop") {
+				pointer-events: none;
+			}
+		}
+
+		&__content-list {
+			min-height: 12rem;
+			padding:
+				linear-clamp(2em, 3em, 26em, 56em )
+				linear-clamp(2em, 4em, 26em, 56em );
+
+			border: 1px solid theme-color("neutral-3");
+			border-top-right-radius: theme-style("border-radius");
+			border-bottom-right-radius: theme-style("border-radius");
+			border-bottom-left-radius: theme-style("border-radius");
+			
+			background-color: theme-color("white");
+
+			.tab-details:not(:first-child) {
+				display: none;
+			}
+
+			p {
+				color: theme-color("text");
+			}
+		}
+	}
+}

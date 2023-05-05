@@ -1,0 +1,41 @@
+@use "../abstract/" as *;
+
+.view-select-container {
+    .flex-layout__heading {
+        padding-bottom: 1.5rem;
+    }
+
+    .acf-flex-layout {
+        padding-top: 2.5rem;
+    }
+    
+    .layout-btn-group {
+        padding: 0 var(--gutter);
+        margin-top: var(--vertical-rhythm);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $spacing-sm;
+    
+        .btn {
+            @include btn;
+    
+            background: #efefef;
+            border-radius: theme-style("button-border-radius");
+            -webkit-border-radius: theme-style("button-border-radius");
+            padding: 0.6em 2em 0.525em;
+    
+            border: 1px solid #d0d0d0;
+            &.active {
+                background-color: theme-color("color-2");
+                color: theme-color("white");
+            }
+        }
+    
+    }
+    
+    h3.button-action-text {
+        font-size: 1rem;
+        font-weight: normal;
+    }
+}

@@ -1,0 +1,88 @@
+@use "../abstract/" as *;
+
+:root {
+    font-size: get-size(400);
+}
+
+body {
+    font-family: theme-font("body");
+    --vertical-rhythm: 1em;
+    line-height: $line-height-normal;
+}
+
+h6,
+h5,
+h4,
+h3,
+h2,
+h1 {
+    line-height: $line-height-condensed;
+	color: theme-color("heading");
+	font-family: theme-font("heading");
+}
+
+h1, .h1 {
+	@include h1;
+}
+
+h2, .h2 {
+	@include h2;
+}
+
+h3, .h3 {
+	@include h3;
+}
+
+h4, .h4 {
+	@include h4;
+}
+
+h5, .h5 {
+	@include h5;
+}
+
+h6, .h6 {
+	@include h6;
+}
+
+ul,
+li {
+    line-height: $line-height-condensed;
+}
+
+.text-spacing {
+
+    & > * + * {
+        margin-top: var(--vertical-rhythm);
+    }
+}
+
+.entry-content {
+	font-weight: get-weight("body");
+    @extend .text-spacing;
+	font-size: get-size(400);
+
+    @include media-query("md") {
+        font-size: get-size(500);
+    }
+}
+
+cite {
+    font-family: theme-font("heading");
+    font-size: get-size(200);
+    font-style: normal;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-family: theme-font("mono");
+    font-size: get-size(300);
+}
+
+::selection {
+    background-color: theme-color("color-2");
+    color: theme-color("white");
+}

@@ -1,0 +1,73 @@
+{
+    "key": "group_614e3f3e6e874",
+    "title": "Prices Fields",
+    "fields": [
+        {
+            "key": "field_614e4027a710d",
+            "label": "Price",
+            "name": "price",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "1.00",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "0.01"
+        },
+        {
+            "key": "field_614e4202a710e",
+            "label": "Currency",
+            "name": "currency",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "$",
+            "placeholder": "$",
+            "prepend": "",
+            "append": "",
+            "maxlength": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "adapt_dev_prices"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1638855883
+}

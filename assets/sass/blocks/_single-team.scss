@@ -1,0 +1,73 @@
+@use "sass:math";
+@use "../abstract/" as *;
+
+.single-adaptdev_team_member {
+
+
+    .entry-header {
+        position: relative;
+
+        .entry-title {
+            padding-right: linear-clamp(130px, 200px, $mobile, $tablet-small);
+        }
+    }
+
+    .main-content {
+        margin-top: $section-spacing;
+        margin-bottom: $section-spacing;
+        // $page-gutter: max(1.5rem, calc(100vw - #{$max-section-width}) / 2);
+
+        padding-left: $page-gutter;
+        padding-right: $page-gutter;
+
+        display: grid;
+        grid-gap: $spacing-lg;
+        grid-template-columns: 1fr;
+
+        @include media-query("lg") {
+            grid-template-columns: linear-clamp(250px, 400px, $tablet-small, $desktop-large) 1fr;
+        }
+
+        .column-left {
+            .entry-thumbnail {
+                @include fixed-aspect-ratio($width: 50, $height: 42);
+                border-radius: theme-style("border-radius");
+                overflow: hidden;
+
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: $spacing-md;
+
+                img {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .entry-title {
+                @include h3;
+            }
+        }
+
+        .entry-thumbnail,
+        .entry-title,
+        .entry-subheading,
+        .entry-content {
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include media-query('lg') {
+                max-width: unset;
+            }
+        }
+    }
+
+}

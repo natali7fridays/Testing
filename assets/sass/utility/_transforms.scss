@@ -1,0 +1,10 @@
+@use "../abstract/" as *;
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+    letter-spacing: get-letter-spacing("uppercase");
+}

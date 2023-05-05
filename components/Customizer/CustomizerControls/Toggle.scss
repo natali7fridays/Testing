@@ -1,0 +1,105 @@
+.components-toggle-control {
+    margin: 0 0 1.5em;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+    font-size: 13px;
+
+    &:last-child {
+        margin-bottom: 0.5em;
+    }
+
+    .components-base-control__field {
+        display: flex;
+        margin-bottom: 12px;
+
+        .adapt_dev-customize-toggle {
+            $height: 18px;
+            $width: 36px;
+            position: relative;
+            margin-left: auto;
+
+            .adapt_dev-customize-toggle__input {
+                cursor: pointer;
+                display: block;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                z-index: 1;
+
+                &:focus + .adapt_dev-customize-toggle__track {
+                    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #6c7781;
+                    outline: 2px solid transparent;
+                    outline-offset: 2px;
+                }
+            }
+
+            .adapt_dev-customize-toggle__thumb {
+                background-color: #6c7781;
+                border: 5px solid #6c7781;
+                border-radius: 50%;
+                display: block;
+                height: $height * 0.25;
+                width: $height * 0.25;
+                left: 4px;
+                position: absolute;
+                top: 4px;
+                transition: transform 0.1s ease;
+            }
+
+            .adapt_dev-customize-toggle__track {
+                background-color: transparent;
+                border: 2px solid #6c7781;
+                border-radius: 9px;
+                display: inline-block;
+                height: $height;
+                width: $width;
+                transition: background 0.2s ease;
+                vertical-align: top;
+            }
+
+            &.is-checked {
+                .adapt_dev-customize-toggle__track {
+                    background-color: #11a0d2;
+                }
+
+                .adapt_dev-customize-toggle__thumb {
+                    background-color: #fff;
+                    border-color: transparent;
+                    transform: translateX(120%);
+                }
+            }
+
+            .adapt_dev-customize-toggle__off,
+            .adapt_dev-customize-toggle__on {
+                height: $height * 0.3;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .adapt_dev-customize-toggle__on {
+                color: #6c7781;
+                fill: currentColor;
+                right: 6px;
+            }
+
+            .adapt_dev-customize-toggle__off {
+                filter: invert(100%) contrast(500%);
+                left: 6px;
+            }
+        }
+    }
+
+    .components-toggle-control__label {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .components-base-control__help {
+        font-style: italic;
+        margin-bottom: 0;
+        margin-top: -8px;
+    }
+}

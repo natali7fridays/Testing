@@ -1,0 +1,99 @@
+{
+    "key": "group_613783059870b",
+    "title": "Gravity Form",
+    "fields": [
+        {
+            "key": "field_610bff2ff21fd",
+            "label": "",
+            "name": "gf_widget_form_id",
+            "type": "select",
+            "instructions": "Select a Gravity form via the list below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "-------------",
+                "1": "Sign Up"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_613ba5a3a491f",
+            "label": "Form Options",
+            "name": "form_options",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_613ba5b1a4920",
+                    "label": "Title \/ Description",
+                    "name": "title_description",
+                    "type": "checkbox",
+                    "instructions": "Toggle the form's title and description. To change these, manage your form <a href=\"\/wp-admin\/admin.php?page=gf_edit_forms&view=settings&subview=settings&id=1\">via its settings screen<\/a>.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "title": "Title",
+                        "description": "Description"
+                    },
+                    "allow_custom": 0,
+                    "default_value": [],
+                    "layout": "horizontal",
+                    "toggle": 0,
+                    "return_format": "value",
+                    "save_custom": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1638547711
+}

@@ -1,0 +1,235 @@
+@use "../abstract/" as *;
+:root {
+	--full-width: 100vw;
+	--slant-magic-number: .04374;
+	--slant-clip-padding: calc(var(--full-width) * var(--slant-magic-number));
+}
+
+html {
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+body {
+    --section-spacing: #{$section-spacing};
+	--section-spacing-some: #{$section-spacing-some};
+    --gutter: #{$page-gutter-sm};
+}
+
+@include media-query("under-mobile") {
+	body {
+		--gutter: #{$page-gutter-xs};
+	}
+}
+
+@include media-query("desktop") {
+	body {
+		--gutter: #{$page-gutter};
+	}
+}
+
+.acf-flex-layout {
+    padding-bottom: var(--section-spacing);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    padding-top: var(--section-spacing);
+
+	&.top-some-padding {
+		padding-top: var(--section-spacing-some);
+	}
+
+	&.top-no-padding {
+		padding-top: 0;
+	}
+
+	&.bottom-some-padding {
+		padding-bottom: var(--section-spacing-some);
+	}
+
+	&.bottom-no-padding {
+		padding-bottom: 0;
+	}
+
+	@include background-color;
+	//@include colors-for-background-color;
+	@include background-image;
+
+    &.hide-image-on-mobile {
+        @include media-query('under-tablet-large') {
+            background-image: none !important;
+        }
+    }
+
+	&.has-slant-divider {
+		position: relative;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	&.has-top-slant-divider {
+		padding-top: calc( ( var(--slant-clip-padding) * 4.25 ) );
+
+		&::before {
+			clip-path: polygon( 0% 0, 100% 0%, 100% 5%, 0% 0% );
+			top: -1px;
+		}
+
+		@include media-query("tablet-large") {
+			padding-top: calc( ( var(--slant-clip-padding) * 3.25 ) );
+		}
+
+		@include media-query("desktop") {
+			padding-top: calc( ( var(--slant-clip-padding) * 2.25 ) );
+
+			&::before {
+				clip-path: polygon( 0% 0, 100% 0%, 100% 12%, 0% 0% );
+			}
+		}
+	}
+
+	&.has-top-slant-divider {
+		padding-bottom: calc( ( var(--slant-clip-padding) * 4.25 ) );
+
+		&::after {
+			clip-path: polygon( 0% 95%, 100% 100%, 100% 100%, 0% 100% );
+			bottom: -1px;
+		}
+
+		@include media-query("tablet-large") {
+			padding-bottom: calc( ( var(--slant-clip-padding) * 3.25 ) );
+		}
+
+		@include media-query("desktop") {
+			padding-bottom: calc( ( var(--slant-clip-padding) * 2.25 ) );
+
+			&::after {
+				clip-path: polygon( 0% 88%, 100% 100%, 100% 100%, 0% 100% );
+			}
+		}
+	}
+}
+
+.flex-layout__headings{
+	margin-bottom: $spacing-md;
+	text-align: center;
+	
+	h2.flex-layout__heading {
+        font-size: get-size('h3');
+
+		@include media-query("under-mobile") {
+			font-size: get-size('h4');
+		}
+
+		@include media-query("md") {
+			font-size: get-size('h2');
+		}
+	}
+
+	h3.flex-layout__sub-heading {
+		margin-top: $spacing-sm;
+		font-size: $font-size-base;
+		max-width: 65ch;
+		margin-inline: auto;
+	}
+
+    @include media-query('md') {
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-section-width;
+}
+
+.flex-split {
+    align-items: center;
+    column-gap: 1em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+
+    @include media-query("md") {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.grid {
+    display: grid;
+}
+
+.container{
+    --max-width: 100%;
+    
+    position: relative;
+    width:100%;
+	padding-inline: var(--gutter);
+
+}
+
+.gutter {
+	padding-inline: var(--gutter);
+}
+
+.vertical-spacing {
+	padding-block: var(--section-spacing);
+}
+
+// make similar grouped sections have less padding
+.layout--two-column:not(.has-bg-color) + .layout--two-column:not(.has-bg-color),
+.layout--cards + .layout--cards {
+	padding-top: 0;
+}
+
+// wp video shortcode wrapper class
+.wp-video-wrap {
+    overflow: hidden;
+    &.hide-controls {
+        .mejs-controls {
+            display: none;
+        }
+    }
+}
+.mejs-container {
+    .mejs-overlay-button {
+        background: theme-color("video-play-bg");
+        border-radius: 50%;
+        transition: transform 0.3s ease-in-out;
+
+        &::before {
+            content: '\f04b';
+            display: block;
+            position: relative;
+            height: 50px;
+            width: 50px;
+            top: 15px;
+            left: 19px;
+            text-align: center;
+            font-family: theme-font('icons');
+            font-size: 36px;
+            font-weight: bold;
+            color: theme-color('white');
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .mejs-controls {
+        background-color: theme-color("video-controls-bg") !important;
+    }
+}

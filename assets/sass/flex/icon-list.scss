@@ -1,0 +1,56 @@
+@use "../abstract/" as *;
+
+.layout--icon-list {
+    .icon-list {
+        .list-item {
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            grid-gap: $spacing-sm;
+            align-items: center;
+
+            .list-item--icon {
+                text-align: center;
+                i {
+                    font-size: get-size(600);
+                }
+                &.white i {
+                    color: theme-color("white");
+                }
+                &.color-1 i {
+                    color: theme-color("color-1");
+                }
+                &.color-2 i {
+                    color: theme-color("color-2");
+                }
+                &.color-3 i {
+                    color: theme-color("color-3");
+                }
+                &.neutral-1 i {
+                    color: theme-color("neutral-1");
+                }
+                &.neutral-2 i {
+                    color: theme-color("neutral-2");
+                }
+            }
+
+            .list-item--text {
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            & + .list-item {
+                margin-top: $spacing-sm;
+            }
+
+			@include media-query("under-mobile") {
+				.list-item--text {
+					font-size: $font-size-base - 2;
+				}
+			}
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@use "abstract/" as *;
+
+$debug_border: 0px 0px 0px 5px #FF0000;
+
+.debug-flag {
+    box-shadow: $debug_border;
+    display: inline-block;
+    position: relative;
+
+    &::after {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        padding: 3px;
+        z-index: 100;
+        width: max-content;
+
+        font-size: 14px;
+        font-weight: normal;
+        height: 28px;
+    }
+
+    &:hover::after {
+        display: block;
+    }
+
+    &.link.missing-alt {
+        &::after {
+            content: 'Link: Missing Alt Text';
+        }
+    }
+    &.image.missing-alt {
+        &::after {
+            content: 'Image: Missing Alt Text';
+        }
+    }
+    &.missing-href {
+        &::after {
+            content: 'Link: Missing HREF';
+        }
+    }
+
+    .debug-flag {
+        &::after {
+            top: calc(100% + 28px);
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@use "../../abstract/" as *;
+
+/**********************************
+	[sitemap]
+**********************************/
+.page-list {
+	columns: 25ch 2;
+    padding: 0;
+    list-style: none;
+	margin-left: 0;
+	padding-inline: var(--gutter);
+
+	li {
+		text-align: left;
+
+		a {
+			font-size: get-size(400);
+		}
+	}
+
+	.children {
+		break-inside: avoid;
+	}
+}

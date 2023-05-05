@@ -1,0 +1,169 @@
+@use "../abstract/" as *;
+
+/**********************************
+	[Accordion UI element]
+**********************************/
+@keyframes fade-in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.accordion {
+	background-color: theme-color("neutral-1");
+	line-height: 1.25;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: var(--vertical-rhythm);
+	max-width: $max-text-width;
+	border: 1px solid theme-color("neutral-3");
+    border-radius: theme-style("border-radius");
+	transition: border .3s ease-in-out;
+	will-change: height;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+
+	summary {
+		&::marker,
+		&::-webkit-details-marker  {
+			content: '';
+			display: none;
+		}
+
+		&:focus {
+			outline-color: theme-color("color-2");
+		}
+	}
+
+	.heading,
+	.summary {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: $spacing-sm;
+
+		font-size: get-size(400);
+		font-family: theme-font("heading");
+		background-color: theme-color("neutral-1");
+		color: theme-color("heading");
+		cursor: pointer;
+		z-index: 2;
+		position: relative;
+		padding: 1em;
+		margin: 0;
+        border-radius: theme-style("border-radius");
+		
+        // transition-duration: .3s;
+        // transition-property: color, border-radius;
+        // transition-timing-function: ease-in-out;
+
+		&::after {
+			content: "\f067";
+			font-family: theme-font("icons");
+			color: theme-color("gray");
+			font-size: get-size(700);
+			font-weight: 400;
+			line-height: .5;
+            transition-duration: .2s;
+            transition-property: transform, color;
+            transition-timing-function: ease-in-out;
+		}
+
+
+
+		@include media-query('md') {
+			font-size: get-size(600);
+			padding: 1.25em 2em;
+		}
+
+		// @include breakpoint($max: $mobile) {
+		// 	padding: 1rem 1.5rem;
+		// 	font-size: rem(20);
+		// }
+
+		// @include breakpoint($max: $mobile-xs) {
+		// 	font-size: rem(18);
+		// }
+	}
+
+	.details {
+		font-size: rem(17);
+		padding: 1.25em 2em;
+        background-color: theme-color("neutral-1");
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		line-height: $line-height-normal;
+		will-change: display;
+
+		// @include breakpoint($max: $mobile) {
+		// 	padding: 1rem 1.5rem;
+		// }
+
+		// @include breakpoint($max: $mobile-xs) {
+		// 	font-size: rem(16);
+		// }
+	}
+
+	.entry-content {
+		padding: 1.25em 2em;
+		min-height: unset;
+		color: theme-color("text");
+
+		p {
+			max-width: 760px;
+			padding: 0;
+			margin: 0;
+			color: theme-color("text");
+		}
+	}
+
+	&[open] {
+		summary ~ * {
+			animation: fade-in .3s ease-in-out;
+		}
+
+		.heading,
+		.summary {
+			color: theme-color("color-1");
+            background-color: theme-color("text");
+			font-weight: 700;
+            border-bottom: 1px solid theme-color("neutral-3");
+
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+
+			&::after {
+                color: theme-color("color-1");
+				transform: rotate(45deg);
+				margin-top: -2px;
+			}
+		}
+	}
+
+	// .heading:focus {
+	// 	color: theme-color("color-1");
+	// 	background-color: theme-color("off-light");
+	// 	font-weight: 700;
+	// 	border-bottom: 1px solid theme-color("neutral-3");
+
+	// 	&::after {
+	// 		color: theme-color("color-1");
+	// 		transform: rotate(45deg);
+	// 		margin-top: -2px;
+	// 	}
+
+	// 	& + .details__content {
+	// 		display: block !important;
+	// 	}
+	// }
+}
+
+
+// Hide accordion details content when JS is active
+// .js {
+//     .accordion .details__content {
+//         display: none;
+//     }
+// }

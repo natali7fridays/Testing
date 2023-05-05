@@ -1,0 +1,52 @@
+@use "../variables";
+@use "sass:map";
+
+@function theme-item($map, $key) {
+    $response: map.get($map, $key);
+
+    @if ($response) {
+
+        @return $response;
+    }
+
+    @warn #{"Theme variable not found"};
+    @return null;
+}
+
+@function theme-color($name) {
+
+    @return theme-item(variables.$theme-colors, $name);
+}
+
+@function theme-font($family) {
+
+    @return theme-item(variables.$theme-fonts, $family);
+}
+
+@function get-size($size) {
+	$font-size: theme-item(variables.$font-sizes, $size);
+    @if ($font-size) {
+
+        @return $font-size;
+    }
+
+	$spacing-size: theme-item(variables.$spacing-sizes, $size);
+    @if ($spacing-size) {
+
+        @return $spacing-size;
+    }
+    @return null;
+}
+
+@function get-weight($weight) {
+    @return theme-item(variables.$font-weights, $weight);
+}
+
+@function get-text-transform($transform) {
+	@return theme-item(variables.$text-transforms, $transform);
+}
+
+@function theme-style($style) {
+    
+    @return theme-item(variables.$theme-styles, $style);
+}

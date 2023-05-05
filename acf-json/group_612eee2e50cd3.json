@@ -1,0 +1,103 @@
+{
+    "key": "group_612eee2e50cd3",
+    "title": "Two Column Layout",
+    "fields": [
+        {
+            "key": "field_612eee3a7f887",
+            "label": "Layout",
+            "name": "two_column_layout",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "equal": "50 \/ 50",
+                "forty-sixty": "40 \/ 60",
+                "sixty-forty": "60 \/ 40"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_615ca23f7f316",
+            "label": "Reverse on mobile?",
+            "name": "reverse_on_mobile",
+            "type": "true_false",
+            "instructions": "Toggle this to swap the column order on mobile layouts so that the second column is stacked on top of the first.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_61573f648ee66",
+            "label": "Vertical Alignment (Desktop)",
+            "name": "vertical_alignment",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "vertical-align-center": "Centered",
+                "vertical-align-top": "Top",
+                "vertical-align-bottom": "Bottom"
+            },
+            "default_value": "vertical-align-center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1638547878
+}

@@ -1,0 +1,9 @@
+@use "composition";
+@use "blocks/entry-content";
+@use "blocks/buttons";
+
+body#tinymce.wp-editor {
+
+    @extend .entry-content;
+    padding: 1em;
+}

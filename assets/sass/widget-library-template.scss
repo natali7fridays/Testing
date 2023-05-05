@@ -1,0 +1,70 @@
+@use "abstract/" as *;
+@use "flex/accordion" as *;
+@use "flex/billboard" as *;
+@use "flex/cards" as *;
+@use "flex/featured-posts" as *;
+@use "flex/two-column" as *;
+@use "flex/gravity-form" as *;
+@use "flex/offers" as *;
+@use "flex/prices" as *;
+@use "flex/tabbed-content" as *;
+@use "flex/team" as *;
+@use "flex/testimonials" as *;
+@use "flex/locations" as *;
+@use "flex/video" as *;
+
+main {
+    --section-spacing: clamp(32px,calc(13.81818px + 5.68182vw),150px);
+}
+
+.cards-widget-layout {
+    background-color: theme-color("neutral-1");
+    min-height: 700px;
+}
+
+.layout--cards.acf-flex-layout {
+    padding-top: 3rem;
+}
+
+.layout--video + .layout--billboard {
+    padding-top: 0;
+}
+
+.layout--featured-posts article .thumb img {
+    height: 200px;
+
+    @include media-query("md") {
+        height: 300px;
+    }
+}
+
+body .layout--cards+.layout--cards, .layout--two-column:not(.has-bg-color)+.layout--two-column:not(.has-bg-color) {
+    padding-top: 3rem;
+}
+
+.gform_wrapper {
+    .gform_fields {
+        column-gap: 1.75em;
+        row-gap: 1.5em;
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    @include media-query("under-tablet") {
+        input {
+            width: 100%;
+        }
+
+        #input_1_1_3 {
+            margin-bottom: 2.75em;
+        }
+    }
+
+    .gform_footer {
+        margin-top: 2em;
+    }
+}

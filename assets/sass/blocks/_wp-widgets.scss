@@ -1,0 +1,190 @@
+@use "../abstract/" as *;
+
+/******************************************************
+    [ wp widgets ]
+*******************************************************/
+.widget-container {
+	&:not(:first-child) {
+		margin-top: var(--vertical-rhythm);
+	}
+
+	.widget-title {
+		font-weight: 500;
+		margin-bottom: rem(28px);
+		font-size: get-size(500);
+		color: theme-color("color-2");
+
+		@include media-query("md") {
+			font-size: get-size(600);
+		}
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	a {
+		text-decoration: none;
+		transition-property: color;
+		transition-timing-function: ease-in-out;
+		transition-duration: .3s;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.menu {
+		li {
+			margin-bottom: 1em;
+
+			a {
+				font-size: rem(15px);
+				font-weight: 500;
+
+				@include media-query("md") {
+					font-size: get-size(500);
+				}
+			}
+		}
+	}
+
+	p {
+		font-size: $font-size-base;
+		font-weight: 300;
+		line-height: 1.5;
+	}
+}
+
+.acf-wp-widget {
+	.fa,
+	.fas {
+		font-weight: 200;
+		font-size: get-size(600);
+	}
+
+	&__logo {
+		margin-bottom: 1em;
+
+		img {
+			height: auto;
+			max-height: 130px;
+			width: auto;
+		}
+	}
+
+	&__address {
+		a, span {
+			display: inline;
+			text-decoration: none;
+		}
+
+		a {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.address-contact-info {
+		padding-top: .5em;
+		padding-bottom: .25em;
+
+		i {
+			margin-right: .25em;
+		}
+
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		> * {
+			margin-block: .5em;
+		}
+	}
+
+	&__links {
+		a {
+			font-size: rem(15px);
+			font-weight: 500;
+			color: theme-color("text");
+
+			@include media-query("md") {
+				font-size: get-size(500);
+			}
+		}
+
+		li {
+			margin-bottom: 1em;
+		}
+	}
+
+	&__contact {
+		li {
+			display: flex;
+			margin-bottom: 1.75em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			h5, a {
+				font-size: get-size(300);
+			}
+
+			h5 {
+				margin-bottom: .25em;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.contact-icon {
+			margin-right: .75em;
+		}
+
+		.contact-address {
+			&__text {
+				h5 {
+					margin-bottom: .25em;
+				}
+				
+				a, span {
+					display: inline;
+					text-decoration: none;
+				}
+		
+				a {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	.social-icons {
+		margin-bottom: 2rem;
+		margin-top: 1.5rem;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+		
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	&:last-child {
+		.social-icons {
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,0 +1,46 @@
+@use "abstract/" as *;
+
+.entry-header.events-header {
+    min-height: 32vmax;
+    padding-inline: 1.5rem;
+    @include media-query("over-tablet") {
+        padding-inline: max(4rem, calc(100vw - #{$max-section-width}) / 1.75);
+    }
+
+    @include media-query("desktop") {
+        min-height: 32vmax;
+        &.min-height-large {
+            min-height: 500px;
+        }
+
+        &.min-height-full {
+            min-height: calc(100vh - var(--header-height));
+        }
+    }
+    .cta {
+        z-index: 1;
+    }
+    .cta__title,
+    .cta__content {
+        color: theme-color("white");
+    }
+    .cta__title {
+        font-size: linear-clamp($font-size-base-static + 18, $font-size-base-static + 52, $mobile-xs, $desktop-large); 
+        margin-bottom: .5rem;
+    }
+
+    .cta__content {
+        font-size: linear-clamp($font-size-base-static, 20px, 320px, 1024px);
+        line-height: 1.25;
+        margin-bottom: 1.75rem;
+        max-width: 40ch;
+    }
+}
+
+.entry-content {
+    .tribe-events-c-view-selector__list {
+        li + li {
+            margin-top: 0px;
+        }
+    }
+}

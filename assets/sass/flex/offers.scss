@@ -1,0 +1,92 @@
+@use "sass:math";
+@use "../abstract/" as *;
+
+.layout--offers {
+    $column-gap: rem(36px);
+    $row-gap: rem(28px);
+    $card-min-width: 540px;
+
+	counter-reset: offer-number;
+
+    .rows {
+        column-gap: $column-gap;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: $row-gap;
+    }
+
+    .card {
+        flex-basis: $card-min-width;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		position: relative;
+        max-width: 100%;
+		border: 1px solid theme-color("neutral-3");
+		background-color: theme-color("white");
+
+		padding: 8.5rem 2rem 2rem 2rem;
+
+		background-image: url('/wp-content/themes/base_teamsi/dist/images/offers-bg-pattern.png');
+		background-repeat: repeat-y;
+		background-position: 95%;
+
+		@include media-query("md") {
+			padding: 3rem 2rem 3rem 8rem;
+		}
+
+		&::before {
+			counter-increment: offer-number;
+			content: " "counter(offer-number)" ";
+			position: absolute;
+
+			display: flex;
+			justify-content: start;
+			align-items: start;
+
+			width: 100%;
+			top: 1rem;
+			bottom: auto;
+			left: 1.5rem;
+			right: 0;
+
+			font-weight: 700;
+			font-size: 7rem;
+			color: theme-color("neutral-1");
+			line-height: 1;
+
+
+			@include media-query("md") {
+				top: 0;
+				bottom: 0;
+				justify-content: center;
+				align-items: center;
+				width: 20%;
+				font-size: 10rem;
+			}
+		}
+
+		&__heading {
+			font-size: linear-clamp(22px, 26px, $tablet-md, $desktop-large);
+			color: theme-color("heading");
+		}
+
+		&__text {
+			padding-inline: 0;
+			margin-top: 1rem;
+		}
+
+        @include breakpoint($max: 767px) {
+            flex-basis: 100%;
+        }
+
+        @include media-query('xl') {
+            flex-basis: 540px;
+        }
+    }
+}

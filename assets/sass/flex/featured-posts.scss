@@ -1,0 +1,111 @@
+@use "sass:math";
+@use "../abstract/" as *;
+
+.layout--featured-posts {
+
+    .card-grid {
+        display: grid;
+        grid-gap: $spacing-md;
+        grid-template-columns: repeat(auto-fill, minmax(css-min(500px, 100%), 1fr));
+    }
+
+    article {
+        @include card;
+		border: 1px solid theme-color("neutral-2");
+		box-shadow: none;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+
+		@include media-query("md") {
+			flex-direction: row;
+		}
+
+        .thumb {
+			width: 100%;
+			display: flex;
+			min-height: 0;
+			max-height: 250px;
+			min-width: 0;
+
+			@include media-query("md") {
+				align-self: stretch;
+				flex-basis: 40%;
+				flex-grow: 0;
+				flex-shrink: 0;
+				max-height: unset;
+			}
+
+			a {
+				width: 100%;
+			}
+			
+            img {
+				border-radius: 0;
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+            }
+
+        }
+
+        .post-title {
+            font-size: $font-size-base + 2;
+			a {
+				color: theme-color("heading");
+				text-decoration: none;
+			}
+        }
+
+        .the-content {
+            font-size: calc(#{get-size(400)} + 4px);
+			padding: $spacing-md;
+			@include media-query("tablet-large") {
+            	padding: $spacing-md_lg $spacing-lg;
+			}
+
+			.entry-content {
+				margin-top: $spacing-md;
+				font-size: get-size(300);
+				
+				p {
+					color: theme-color("text");
+				}
+			}
+        }
+
+		.learn-more {
+			margin-top: $spacing-md;
+			text-align: center;
+
+			@include media-query("tablet") {
+				text-align: left;
+			}
+
+			a {
+				text-decoration: none;
+				color: theme-color("color-1");
+				@include btn;
+				@include btn-primary;
+				font-size: get-size(300);
+				padding-top: 6px;
+				padding-bottom: 6px;
+			}
+		}
+
+        .entry__cta {
+            font-size: calc(#{get-size(400)} - 2px);
+            font-weight: 700;
+			letter-spacing: get-letter-spacing("md");
+            text-transform: uppercase;
+        }
+    }
+
+	&.text-center {
+		article {
+			.learn-more {
+				text-align: center;
+			}
+		}
+	}
+}

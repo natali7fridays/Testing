@@ -1,0 +1,245 @@
+/*
+* Make placeholder text look lighter and more like a placeholder
+*/
+.acf-input-wrap input::placeholder {
+    color: #bfbfbf;
+}
+
+/**
+* Card Layout preview images
+*/
+.post-type-page {
+	.acf-field[data-name="layout"] {
+		padding-bottom: 30px;
+	
+		.acf-input ul {
+			display: flex;
+			flex-wrap: wrap;
+	
+			li {
+				position: relative;
+				width: 110px;
+				margin-bottom: 110px;
+	
+				.selected {
+					input {
+						&::after {
+							-webkit-box-shadow: inset 0px 0px 0px 2px #3582c4;
+							box-shadow: inset 0px 0px 0px 2px #3582c4;
+						}
+					}
+				}
+	
+				input {
+					border: none;
+					background-color: transparent;
+					box-shadow: none;
+					position: absolute;
+	
+					&[value="polaroid"]::after {
+						background-image:url("../images/card-preview-1.jpg");
+					}
+	
+					&[value="cta"]::after {
+						background-image:url("../images/card-preview-2.jpg");
+					}
+	
+					&[value="feature"]::after {
+						background-image:url("../images/card-preview-3.jpg");
+					}
+
+					&[value="postcard"]::after {
+						background-image:url("../images/card-preview-4.jpg");
+					}
+	
+					&::before {
+						display: none;
+					}
+	
+					&::after {
+						content: '';
+						position: absolute;
+						border: 1px solid lightgray;
+						height: 100px;
+						width: 100px;
+						left: 0;
+						top: 30px;
+						background-size: contain;
+						background-position: center;
+					}
+				}
+			}
+		}
+	}
+}
+
+/**
+* Section background color radio buttons.
+*/
+.acf-field[data-name="background_color"] .acf-input ul li,
+.acf-field.bg-color-palette .acf-input ul li,
+.acf-field[data-name="icon_color"] .acf-input ul li,
+.acf-field[data-name="button_style"] .acf-input ul li {
+	position: relative;
+	width: 2.125em;
+	height: 2.125em;
+	overflow: hidden;
+	padding: 4px;
+	transition: transform .1s ease-in-out;
+}
+
+.acf-field[data-name="background_color"] .acf-input ul li:hover,
+.acf-field.bg-color-palette .acf-input ul li:hover,
+.acf-field[data-name="icon_color"] .acf-input ul li:hover {
+	transform: scale(1.15);
+}
+
+.acf-field[data-name="background_color"] .acf-input ul li label,
+.acf-field.bg-color-palette .acf-input ul label,
+.acf-field[data-name="icon_color"] .acf-input ul li label {
+	color: transparent;
+}
+
+.acf-field[data-name="background_color"] .acf-input ul li input,
+.acf-field.bg-color-palette .acf-input ul input,
+.acf-field[data-name="icon_color"] .acf-input ul li input {
+	height: 2em;
+	width: 2em;
+}
+
+.acf-field[data-name="background_color"] .acf-input ul input:checked::before,
+.acf-field.bg-color-palette .acf-input ul input:checked::before,
+.acf-field[data-name="icon_color"] .acf-input ul input:checked::before {
+	display: none;
+}
+
+.acf-field[data-name="background_color"] .acf-input ul input:focus,
+.acf-field[data-name="background_color"] .acf-input ul input:checked,
+.acf-field.bg-color-palette .acf-input ul input:focus,
+.acf-field.bg-color-palette .acf-input ul input:checked,
+.acf-field[data-name="icon_color"] .acf-input ul input:focus,
+.acf-field[data-name="icon_color"] .acf-input ul input:checked {
+	box-shadow: 0 0 0 3px #8e8e8e;
+	border-color: #fff;
+	border-width: 2px;
+}
+
+.acf-field[data-name="background_color"] .acf-input ul li input[value="black"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="black"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="black"] {
+	background-color: black;
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="white"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="white"] {
+	background-color: white;
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="color-1"],
+.acf-field.bg-color-palette .acf-input ul li input[value="color-1"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="color-1"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="color-1"] {
+	background-color: var(--color-1);
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="color-2"],
+.acf-field.bg-color-palette .acf-input ul li input[value="color-2"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="color-2"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="color-2"] {
+	background-color: var(--color-2);
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="color-3"],
+.acf-field.bg-color-palette .acf-input ul li input[value="color-3"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="color-3"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="color-3"] {
+	background-color: var(--color-3);
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="neutral-1"],
+.acf-field.bg-color-palette .acf-input ul li input[value="neutral-1"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="neutral-1"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="neutral-1"] {
+	background-color: var(--color-neutral-1);
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="neutral-2"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="neutral-2"],
+.acf-field.bg-color-palette .acf-input ul li input[value="neutral-2"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="neutral-2"] {
+	background-color: var(--color-neutral-2);
+}
+.acf-field[data-name="background_color"] .acf-input ul li input[value="neutral-3"],
+.acf-field[data-name="icon_color"] .acf-input ul li input[value="neutral-3"],
+.acf-field.bg-color-palette .acf-input ul li input[value="neutral-3"],
+.acf-field[data-name="button_style"] .acf-input ul li input[value="neutral-3"] {
+	background-color: var(--color-neutral-3);
+}
+
+/*
+* Admin theme color input previews
+*/
+.theme-color-preview .acf-input-wrap {
+	display: flex;
+
+	.acf-input-preview {
+		padding: 15px;
+		border-radius: 4px;
+		margin-left: 8px;
+		border: 1px solid #8c8f94;
+	}
+
+	input {
+		width: auto;
+	}
+}
+
+/*
+* ACF Flex content styles
+*/
+.acf-field-flexible-content {
+	.acf-flexible-content {
+		> .values {
+			margin-bottom: 2rem;
+		}
+
+		.layout {
+			margin-top: 2rem;
+		}
+	}
+}
+
+
+/*
+* Widget Options panel
+*/
+.post-type-page .layout .acf-field-accordion.acf-field-613a78eda1d47 {
+	.acf-accordion-content {
+		background-color: #f9f9f9;
+
+		&> .acf-fields {
+			padding: 1rem 4rem;
+		} 
+	}
+
+	.bg-color-palette {
+		.acf-label {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			.current-bg-color {
+				display: block;
+				width: 40px;
+				height: 15px;
+				border: 1px solid #8c8f94;
+				margin-bottom: 3px;
+			}
+		}
+	}
+
+	&.-open {
+		.acf-accordion-title {
+			background-color: #f3f4f5;
+		}
+	}
+}
+
+//light bit for adding a new aria field to the link popup
+body .has-text-field #wp-link .query-results {
+    top: 240px;
+}
